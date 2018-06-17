@@ -50,8 +50,10 @@ module.exports.routes = {
   },
   'POST /api/v1/load-data/load-target': { action: 'load-data/load-target' },
   'POST /api/v1/load-data/load-shaws': { action: 'load-data/load-shaws' },
-  'POST /api/v1/load-data/load-walmart': { action: 'load-data/load-walmart' }
-
+  'POST /api/v1/load-data/load-walmart': { action: 'load-data/load-walmart' },
+  'POST /api/v1/load-data/populate-elastic': {
+    action: 'load-data/populate-elastic'
+  }
   //  ╦ ╦╔═╗╔╗ ╦ ╦╔═╗╔═╗╦╔═╔═╗
   //  ║║║║╣ ╠╩╗╠═╣║ ║║ ║╠╩╗╚═╗
   //  ╚╩╝╚═╝╚═╝╩ ╩╚═╝╚═╝╩ ╩╚═╝
