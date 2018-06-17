@@ -9,7 +9,6 @@ module.exports = {
   inputs: {},
 
   fn: async function(inputs, exits) {
-    sails.log(config.elasticURI);
     const client = new elasticsearch.Client({
       hosts: [config.elasticURI]
     });

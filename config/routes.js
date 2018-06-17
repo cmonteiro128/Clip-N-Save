@@ -53,7 +53,11 @@ module.exports.routes = {
   'POST /api/v1/load-data/load-walmart': { action: 'load-data/load-walmart' },
   'POST /api/v1/load-data/populate-elastic': {
     action: 'load-data/populate-elastic'
-  }
+  },
+
+  /* Search */
+  'POST /api/v1/search/search-sales': { action: 'search/search-sales' }
+
   //  ╦ ╦╔═╗╔╗ ╦ ╦╔═╗╔═╗╦╔═╔═╗
   //  ║║║║╣ ╠╩╗╠═╣║ ║║ ║╠╩╗╚═╗
   //  ╚╩╝╚═╝╚═╝╩ ╩╚═╝╚═╝╩ ╩╚═╝

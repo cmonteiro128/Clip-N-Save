@@ -20,11 +20,22 @@ module.exports = {
   fn: async function(inputs, exits) {
     const client = await sails.helpers.elasticSearchConnection();
 
+    // Clear the index first
+    await client.deleteByQuery({
+      index: 'saleitems',
+      body: {
+        query: {
+          match_all: {}
+        }
+      }
+    });
+
     // We want to get all data in Mongo and add it to ElasticSearch
     var saleItems = await SaleItem.find();
 
     let bulk = [];
 
+    // Fill an array of objects from our sale items in MongoDB
     saleItems.forEach(element => {
       bulk.push(
         {
@@ -35,12 +46,14 @@ module.exports = {
           salePrice: element.salePrice,
           storeName: element.storeName,
           startDate: element.startDate,
-          endDate: element.endDate
+          endDate: element.endDate,
+          image: element.image
         }
       );
     });
 
-    client.bulk(
+    // Load the array of objects (saleItems) into Elasticsearch using a bulk call
+    await client.bulk(
       {
         index: 'saleitems',
         type: 'saleItem',
