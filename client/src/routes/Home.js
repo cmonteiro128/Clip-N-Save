@@ -1,6 +1,6 @@
 import React from 'react';
 import { css } from 'emotion';
-import { Grid, Message } from 'semantic-ui-react';
+import { Grid, Message, Card } from 'semantic-ui-react';
 import HeaderBar from '../components/HeaderBar';
 import WelcomeMessage from '../components/WelcomeMessage';
 import SaleCard from '../components/SaleCard';
@@ -45,7 +45,7 @@ const Home = connect('searchResults')(({ searchResults }) => {
     >
       <HeaderBar />
       <WelcomeMessage />
-      <Grid columns={3}>{cards}</Grid>
+      <Grid columns={6}>{cards}</Grid>
     </div>
   );
 });
