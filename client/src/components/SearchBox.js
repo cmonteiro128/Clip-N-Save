@@ -8,8 +8,7 @@ const SearchBox = connect(
   searchActions,
 )(({ updateCurrentSearchText }) => (
   <Input
-    loading
-    icon="user"
+    icon="food"
     placeholder="Search..."
     aligned="left"
     onChange={(e, { value }) => {

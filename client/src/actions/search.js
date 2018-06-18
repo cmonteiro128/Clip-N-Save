@@ -1,6 +1,5 @@
 const searchQuery = async (query) => {
   const queryData = { productName: query };
-  console.log(queryData);
   const response = await fetch('http://localhost:1337/api/v1/search/search-sales', {
     body: JSON.stringify(queryData), // must match 'Content-Type' header
     headers: {
@@ -10,15 +9,16 @@ const searchQuery = async (query) => {
     mode: 'cors', // no-cors, cors, *same-origin
   });
   const json = await response.json();
+  console.log(json);
   return json;
 };
 const searchActions = store => ({
   // Actions can just return a state update:
-  updateCurrentSearchText(state, data) {
-    console.log(state);
+  async updateCurrentSearchText(state, data) {
     store.setState({ currentSearchInput: data });
-    const searchResponse = searchQuery(data);
-    store.setState({ currentSearchInput: searchResponse });
+    const results = await searchQuery(data);
+    const sortedCards = results.sort((a, b) => a._source.salePrice - b._source.salePrice);
+    store.setState({ searchResults: sortedCards });
   },
 });
 
