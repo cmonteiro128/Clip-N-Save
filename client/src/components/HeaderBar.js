@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { css } from 'emotion';
-import { Menu, Search } from 'semantic-ui-react';
+import { Menu } from 'semantic-ui-react';
+import SearchBox from './SearchBox';
 
 export default class HeaderBar extends Component {
   state = {};
@@ -28,7 +29,7 @@ export default class HeaderBar extends Component {
         />
         <Menu.Menu position="right">
           <Menu.Item name="" position="right">
-            <Search aligned="left" />
+            <SearchBox />
           </Menu.Item>
           <Menu.Item
             active={activeItem === 'my account'}
