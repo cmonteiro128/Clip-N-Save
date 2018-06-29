@@ -21,7 +21,17 @@ module.exports = {
 
   fn: async function(inputs, exits) {
     let res = await fetch(
-      'https://circular.stopandshop.com/flyer_data/1748889?locale=en-US'
+      'https://circular.stopandshop.com/flyer_data/1788422?locale=en-US',
+      {
+        credentials: 'include',
+        headers: {},
+        referrer:
+          'https://circular.stopandshop.com/flyers/stopandshop?type=2&use_requested_domain=true',
+        referrerPolicy: 'no-referrer-when-downgrade',
+        body: null,
+        method: 'GET',
+        mode: 'cors'
+      }
     );
     let json = await res.json();
 

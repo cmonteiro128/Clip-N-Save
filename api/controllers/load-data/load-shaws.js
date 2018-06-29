@@ -24,7 +24,7 @@ module.exports = {
   fn: async function(inputs, exits) {
     let res = await fetch(
       //Shaws and Stop and Shop actually have different links ... we'll hardcode for now until location features are implemented
-      'https://circulars-prod.cpnscdn.com/padolib/StarMarket/18_24_STR_WC_M/store/2576/productDB.xml'
+      'https://circulars-prod.cpnscdn.com/padolib/StarMarket/18_25_STR_WC_M/store/2576/productDB.xml'
     );
     let xml = await res.text();
     let jsonString = await parser.toJson(xml);
@@ -38,7 +38,7 @@ module.exports = {
         startDate: element.start,
         endDate: element.end,
         image:
-          'https://circulars-prod.cpnscdn.com/padolib/StarMarket/18_24_STR_WC_M/products/' +
+          'https://circulars-prod.cpnscdn.com/padolib/StarMarket/18_25_STR_WC_M/products/' +
           element.photo
       };
       await SaleItem.findOrCreate(itemInfo, itemInfo).exec(
