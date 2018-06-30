@@ -1,0 +1,36 @@
+node_modules
+.tmp
+*~
+*#
+.DS_STORE
+.netbeans
+nbproject
+.idea
+.node_history
+dump.rdb
+npm-debug.log
+lib-cov
+*.seed
+*.log
+*.out
+*.pid
+
+# dependencies
+/client/node_modules
+
+# testing
+/client/coverage
+
+# production
+/client/build
+
+# misc
+/client/.DS_Store
+/client/.env.local
+/client/.env.development.local
+/client/.env.test.local
+/client/.env.production.local
+
+/client/npm-debug.log*
+/client/yarn-debug.log*
+/client/yarn-error.log*
