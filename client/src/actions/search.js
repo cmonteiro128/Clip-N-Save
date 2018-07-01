@@ -1,6 +1,8 @@
+import baseURL from '../environments';
+
 const searchQuery = async (query) => {
   const queryData = { productName: query };
-  const response = await fetch('http://localhost:1337/api/v1/search/search-sales', {
+  const response = await fetch(`${baseURL}api/v1/search/search-sales`, {
     body: JSON.stringify(queryData), // must match 'Content-Type' header
     headers: {
       Accept: 'application/json',

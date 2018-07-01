@@ -1,0 +1,7 @@
+version: '3'
+services:
+  web:
+    container_name: QSave
+    build: .
+    ports:
+      - '1337:1337'
