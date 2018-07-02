@@ -55,7 +55,7 @@ module.exports.routes = {
   'POST /api/v1/search/search-sales': { action: 'search/search-sales' },
 
   /* Authentication */
-  'POST /login': 'AuthController.login',
-  '/logout': 'AuthController.logout',
-  'GET /register': { view: 'register' }
+  'POST /api/v1/user': 'user/create', // Register & create user
+  'POST /api/v1/login': 'AuthController.login', // Login
+  'POST /api/v1/logout': 'AuthController.logout' // Logout
 };
