@@ -35,7 +35,7 @@ module.exports = {
       await SaleItem.findOrCreate(itemInfo, itemInfo).exec(
         async (err, item, wasCreated) => {
           if (err) {
-            return res.serverError(err);
+            return sails.log(err);
           }
 
           if (wasCreated) {

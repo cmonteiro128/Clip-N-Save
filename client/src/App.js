@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { css } from 'emotion';
 import Home from './routes/Home';
+import Account from './routes/Account';
 
 const App = () => (
   <div
@@ -11,7 +12,10 @@ const App = () => (
     `}
   >
     <Router>
-      <Route exact path="/" component={Home} />
+      <div>
+        <Route exact path="/" component={Home} />
+        <Route path="/account/" component={Account} />
+      </div>
     </Router>
   </div>
 );

@@ -52,13 +52,10 @@ module.exports.routes = {
   },
 
   /* Search */
-  'POST /api/v1/search/search-sales': { action: 'search/search-sales' }
+  'POST /api/v1/search/search-sales': { action: 'search/search-sales' },
 
-  //  ╦ ╦╔═╗╔╗ ╦ ╦╔═╗╔═╗╦╔═╔═╗
-  //  ║║║║╣ ╠╩╗╠═╣║ ║║ ║╠╩╗╚═╗
-  //  ╚╩╝╚═╝╚═╝╩ ╩╚═╝╚═╝╩ ╩╚═╝
-
-  //  ╔╦╗╦╔═╗╔═╗
-  //  ║║║║╚═╗║
-  //  ╩ ╩╩╚═╝╚═╝
+  /* Authentication */
+  'POST /login': 'AuthController.login',
+  '/logout': 'AuthController.logout',
+  'GET /register': { view: 'register' }
 };

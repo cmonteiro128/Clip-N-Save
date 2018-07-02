@@ -1,0 +1,6 @@
+{
+  "name": "qsave",
+  "alias": "qsave.now.sh",
+  "type": "docker",
+  "public": true
+}

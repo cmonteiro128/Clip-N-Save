@@ -1,10 +1,10 @@
 import React from 'react';
 import { css } from 'emotion';
-import { Grid, Message, Card } from 'semantic-ui-react';
+import { Grid, Message } from 'semantic-ui-react';
+import { connect } from 'unistore/react';
 import HeaderBar from '../components/HeaderBar';
 import WelcomeMessage from '../components/WelcomeMessage';
 import SaleCard from '../components/SaleCard';
-import { connect } from 'unistore/react';
 
 const Home = connect('searchResults')(({ searchResults }) => {
   const cards =

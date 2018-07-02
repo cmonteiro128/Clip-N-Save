@@ -20,8 +20,28 @@ module.exports = {
   },
 
   fn: async function(inputs, exits) {
+    // we need to get the flyer ID for S&S
+    let flyerIDRes = await fetch(
+      'https://circular.stopandshop.com/shopping_lists/available_flyers?merchant_id=2393&store_code=0412&postal_code=02215',
+      {
+        credentials: 'include',
+        headers: {},
+        referrer:
+          'https://circular.stopandshop.com/flyers/stopandshop?type=2&use_requested_domain=true',
+        referrerPolicy: 'no-referrer-when-downgrade',
+        body: null,
+        method: 'GET',
+        mode: 'cors'
+      }
+    );
+    let flyerIDJSON = await flyerIDRes.json();
+    sails.log(flyerIDJSON);
+    const flyerID = flyerIDJSON[0].flyer_id;
+
     let res = await fetch(
-      'https://circular.stopandshop.com/flyer_data/1788422?locale=en-US',
+      'https://circular.stopandshop.com/flyer_data/' +
+        flyerID +
+        '?locale=en-US',
       {
         credentials: 'include',
         headers: {},
@@ -47,13 +67,13 @@ module.exports = {
       await SaleItem.findOrCreate(itemInfo, itemInfo).exec(
         async (err, item, wasCreated) => {
           if (err) {
-            return res.serverError(err);
+            return sails.log(err);
           }
 
           if (wasCreated) {
-            sails.log('Added a new sale item: ' + item.productName);
+            //sails.log('Added a new sale item: ' + item.productName);
           } else {
-            sails.log('Found existing sale item: ' + item.productName);
+            //sails.log('Found existing sale item: ' + item.productName);
           }
         }
       );

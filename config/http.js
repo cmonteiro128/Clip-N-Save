@@ -26,9 +26,14 @@ module.exports.http = {
      * (This Sails app's routes are handled by the "router" middleware below.)  *
      *                                                                          *
      ***************************************************************************/
+    passportInit: require('passport').initialize(),
+    passportSession: require('passport').session(),
+
     order: [
       'customClient',
       'cookieParser',
+      'passportInit',
+      'passportSession',
       'session',
       'bodyParser',
       'compress',
@@ -37,18 +42,7 @@ module.exports.http = {
       'www',
       'favicon'
     ],
-    /***************************************************************************
-     *                                                                          *
-     * The body parser that will handle incoming multipart HTTP requests.       *
-     *                                                                          *
-     * https://sailsjs.com/config/http#?customizing-the-body-parser             *
-     *                                                                          *
-     ***************************************************************************/
-    // bodyParser: (function _configureBodyParser(){
-    //   var skipper = require('skipper');
-    //   var middlewareFn = skipper({ strict: true });
-    //   return middlewareFn;
-    // })(),
+
     customClient: serveStatic('client/build', { index: ['index.html'] })
   }
 };
