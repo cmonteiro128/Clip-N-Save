@@ -3,6 +3,7 @@ import devtools from 'unistore/devtools';
 
 const initialState = {
   currentSearchInput: '',
+  isSignedIn: false,
   searchResults: [],
 };
 const store =

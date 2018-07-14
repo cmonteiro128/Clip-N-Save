@@ -16,7 +16,7 @@ const searchQuery = async (query) => {
 };
 const searchActions = store => ({
   // Actions can just return a state update:
-  async updateCurrentSearchText(state, data) {
+  updateCurrentSearchText: async (state, data) => {
     store.setState({ currentSearchInput: data });
     const results = await searchQuery(data);
     // const sortedCards = results.sort((a, b) => a._source.salePrice - b._source.salePrice);

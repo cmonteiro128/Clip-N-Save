@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { css } from 'emotion';
 import { Menu } from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
 import SearchBox from './SearchBox';
 
 export default class HeaderBar extends Component {
@@ -31,15 +32,18 @@ export default class HeaderBar extends Component {
           <Menu.Item name="" position="right">
             <SearchBox />
           </Menu.Item>
-          <Menu.Item
-            active={activeItem === 'my account'}
-            name="my account"
-            onClick={this.handleItemClick}
-            position="left"
-            className={css`
-              font-size: 17px;
-            `}
-          />
+          <Link to="/account" href="/account">
+            <Menu.Item
+              active={activeItem === 'my account'}
+              link
+              className={css`
+                font-size: 17px;
+                height: 100%;
+              `}
+              name="my account"
+              position="left"
+            />
+          </Link>
         </Menu.Menu>
       </Menu>
     );

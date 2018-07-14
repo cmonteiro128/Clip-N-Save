@@ -1,16 +1,20 @@
 import React from 'react';
-import { css } from 'emotion';
 import { connect } from 'unistore/react';
 import HeaderBar from '../components/HeaderBar';
+import authActions from '../actions/auth';
 
-const Account = connect('searchResults')(({ searchResults }) => (
-  <div
-    className={css`
-      margin-top: 10px;
-    `}
-  >
-    <HeaderBar />
-    <p>Account page here</p>
-  </div>
-));
-export default Account;
+class Account extends React.Component {
+  render() {
+    return (
+      <div>
+        <HeaderBar />
+        <p>Welcome to the account page!</p>
+      </div>
+    );
+  }
+}
+
+export default connect(
+  'isSignedIn',
+  authActions,
+)(Account);
