@@ -3,11 +3,9 @@
  *
  * @description :: Handles authentication functions through Passport
  */
-const passport = require('passport');
-const FirebaseStrategy = require('passport-firebase-auth').Strategy;
 
 module.exports = {
-  login: function(req, res) {
+  /*login: function(req, res) {
     passport.authenticate('local', (err, user, info) => {
       if (err || !user) {
         return res.send({
@@ -29,5 +27,5 @@ module.exports = {
   logout: function(req, res) {
     req.logout();
     res.redirect('/');
-  }
+  }*/
 };
