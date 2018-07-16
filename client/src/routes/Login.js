@@ -19,6 +19,7 @@ class Login extends React.Component {
           firebase.auth.GoogleAuthProvider.PROVIDER_ID,
           firebase.auth.FacebookAuthProvider.PROVIDER_ID,
         ],
+        credentialHelper: 'none',
         callbacks: {
           signInSuccessWithAuthResult: () => false,
         },

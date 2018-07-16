@@ -5,8 +5,6 @@
  * @docs        :: https://sailsjs.com/docs/concepts/models-and-orm/models
  */
 
-const bcrypt = require('bcrypt-nodejs');
-
 module.exports = {
   attributes: {
     //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
@@ -15,10 +13,6 @@ module.exports = {
     firstName: { type: 'string' },
     lastName: { type: 'string' },
     email: { type: 'string' },
-    password: {
-      type: 'string',
-      required: true
-    },
     //  ╔═╗╔═╗╔═╗╔═╗╔═╗╦╔═╗╔╦╗╦╔═╗╔╗╔╔═╗
     //  ╠═╣╚═╗╚═╗║ ║║  ║╠═╣ ║ ║║ ║║║║╚═╗
     //  ╩ ╩╚═╝╚═╝╚═╝╚═╝╩╩ ╩ ╩ ╩╚═╝╝╚╝╚═╝
@@ -26,23 +20,5 @@ module.exports = {
       collection: 'searchterm',
       via: 'owner'
     }
-  },
-  //Passport Stuff
-  customToJSON: function() {
-    return _.omit(this, ['password']);
-  },
-  beforeCreate: function(user, cb) {
-    bcrypt.genSalt(10, (err, salt) => {
-      bcrypt.hash(user.password, salt, null, (err, hash) => {
-        if (err) {
-          return cb(err);
-        }
-        user.password = hash;
-        return cb();
-      });
-      if (err) {
-        return cb(err);
-      }
-    });
   }
 };

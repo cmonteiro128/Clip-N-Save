@@ -5,6 +5,13 @@
  */
 
 module.exports = {
+  userTest: (req, res) => {
+    const out = {};
+    if (req.user) {
+      out.user = req.user;
+    }
+    return res.ok(out);
+  }
   /*login: function(req, res) {
     passport.authenticate('local', (err, user, info) => {
       if (err || !user) {

@@ -52,7 +52,10 @@ module.exports.routes = {
   },
 
   /* Search */
-  'POST /api/v1/search/search-sales': { action: 'search/search-sales' }
+  'POST /api/v1/search/search-sales': { action: 'search/search-sales' },
+
+  /* User Test */
+  'GET /api/v1/user/user-info': { action: 'Auth/userTest' }
 
   /* Authentication */
   //'POST /api/v1/user/register': 'UserController.register', // Register & create user
