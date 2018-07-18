@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { css } from 'emotion';
-import { Menu } from 'semantic-ui-react';
+import { Menu, Icon } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import SearchBox from './SearchBox';
 
@@ -28,6 +28,30 @@ export default class HeaderBar extends Component {
             font-size: 20px;
           `}
         />
+        <Link to="/" href="/">
+          <Menu.Item
+            active={activeItem === 'search deals'}
+            link
+            className={css`
+              font-size: 17px;
+              height: 100%;
+            `}
+            name="search deals"
+            position="left"
+          />
+        </Link>
+        <Link to="/" href="/">
+          <Menu.Item
+            active={activeItem === 'saved deals'}
+            link
+            className={css`
+              font-size: 17px;
+              height: 100%;
+            `}
+            name="saved deals"
+            position="left"
+          />
+        </Link>
         <Menu.Menu position="right">
           <Menu.Item name="" position="right">
             <SearchBox />
@@ -43,6 +67,20 @@ export default class HeaderBar extends Component {
               name="my account"
               position="left"
             />
+          </Link>
+          <Link to="/login" href="/login">
+            <Menu.Item
+              active={activeItem === 'sign out'}
+              link
+              className={css`
+                font-size: 17px;
+                height: 100%;
+              `}
+              name="sign out"
+              position="left"
+            >
+              <Icon name="log out" />
+            </Menu.Item>
           </Link>
         </Menu.Menu>
       </Menu>

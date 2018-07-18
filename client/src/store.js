@@ -5,6 +5,9 @@ const initialState = {
   currentSearchInput: '',
   isSignedIn: false,
   searchResults: [],
+  user: '',
+  userPhoto: '',
+  userEmail: '',
 };
 const store =
   process.env.NODE_ENV === 'production'
