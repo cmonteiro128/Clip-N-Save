@@ -7,7 +7,7 @@ const initialState = {
   searchResults: [],
   user: '',
   userPhoto: '',
-  userEmail: '',
+  userEmail: ''
 };
 const store =
   process.env.NODE_ENV === 'production'

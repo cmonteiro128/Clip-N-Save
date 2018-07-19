@@ -17,13 +17,13 @@ class Login extends React.Component {
         signInOptions: [
           firebase.auth.EmailAuthProvider.PROVIDER_ID,
           firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-          firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+          firebase.auth.FacebookAuthProvider.PROVIDER_ID
         ],
         credentialHelper: 'none',
         callbacks: {
-          signInSuccessWithAuthResult: () => false,
-        },
-      },
+          signInSuccessWithAuthResult: () => false
+        }
+      }
     };
   }
 
@@ -44,7 +44,10 @@ class Login extends React.Component {
         <HeaderBar />
         <p>You are signed out</p>
         <p>Prop isSignedIn: {this.props.isSignedIn.toString()}</p>
-        <StyledFirebaseAuth uiConfig={this.state.uiConfig} firebaseAuth={firebase.auth()} />
+        <StyledFirebaseAuth
+          uiConfig={this.state.uiConfig}
+          firebaseAuth={firebase.auth()}
+        />
       </div>
     );
   }
@@ -52,5 +55,5 @@ class Login extends React.Component {
 
 export default connect(
   'isSignedIn',
-  authActions,
+  authActions
 )(Login);

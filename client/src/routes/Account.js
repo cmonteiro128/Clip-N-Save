@@ -28,7 +28,7 @@ import authActions from '../actions/auth';
 
 const Account = connect(
   ['user', 'userPhoto', 'userEmail'],
-  authActions,
+  authActions
 )(({ user, userPhoto, userEmail }) => (
   <div
     className={css`
@@ -155,5 +155,5 @@ const Account = connect(
 
 export default connect(
   'isSignedIn',
-  userActions,
+  userActions
 )(Account);

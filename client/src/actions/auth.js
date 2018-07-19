@@ -9,26 +9,26 @@ const authActions = store => ({
       firebase
         .auth()
         .currentUser.getIdToken(/* forceRefresh */ true)
-        .then(async (idToken) => {
+        .then(async idToken => {
           const response = await fetch(`${baseURL}api/v1/user/user-info`, {
             headers: {
               Accept: 'application/json',
-              token: idToken,
+              token: idToken
             },
             method: 'GET', // *GET, POST, PUT, DELETE, etc.
-            mode: 'cors', // no-cors, cors, *same-origin
+            mode: 'cors' // no-cors, cors, *same-origin
           });
           const json = await response.json();
           console.log(json);
           store.setState({
             user: json.user.displayName,
             userPhoto: json.user.photoURL,
-            userEmail: json.user.email,
+            userEmail: json.user.email
           });
           return json;
         });
     }
-  },
+  }
 });
 
 export default authActions;

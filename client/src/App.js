@@ -13,7 +13,7 @@ export default class App extends React.Component {
     super();
     const config = {
       apiKey: 'AIzaSyB9kIA0S8tQYy6jSOd5mT5kqYd17aJIdSo',
-      authDomain: 'qsave-e2132.firebaseapp.com',
+      authDomain: 'qsave-e2132.firebaseapp.com'
     };
     firebase.initializeApp(config);
   }

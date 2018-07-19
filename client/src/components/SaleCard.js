@@ -1,16 +1,18 @@
 import React from 'react';
 import { Image, Icon, Card, Header, Grid } from 'semantic-ui-react';
 
-const SaleCard = (props) => {
+const SaleCard = props => {
   let logoSource;
   let price = props.salePrice;
   const endDate = new Date(props.endDate);
   if (props.storeName === 'Market Basket') {
-    logoSource = 'https://www.shopmarketbasket.com/sites/default/files/Market-Basket-Logo.png';
+    logoSource =
+      'https://www.shopmarketbasket.com/sites/default/files/Market-Basket-Logo.png';
   } else if (props.storeName === 'Stop Shop') {
     logoSource = 'https://stopandshop.com/static/rsns/img/opco-logo.svg';
   } else if (props.storeName === 'Shaws') {
-    logoSource = 'https://www.shaws.com/wp-content/uploads/2015/11/shaws_800.jpg';
+    logoSource =
+      'https://www.shaws.com/wp-content/uploads/2015/11/shaws_800.jpg';
   }
   if (!price.includes('$')) {
     price = `$${price}`;

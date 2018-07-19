@@ -5,7 +5,7 @@ import searchActions from '../actions/search';
 
 const SearchBox = connect(
   'currentSearchInput',
-  searchActions,
+  searchActions
 )(({ updateCurrentSearchText }) => (
   <Input
     icon="food"
