@@ -11,6 +11,7 @@ const Home = connect('searchResults')(({ searchResults }) => {
     searchResults.length > 0 ? (
       searchResults.map((element, index) => {
         console.log(element);
+        /* eslint-disable no-underscore-dangle */
         const item = element._source;
         let best;
         if (index === 0) best = true;

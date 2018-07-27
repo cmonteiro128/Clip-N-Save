@@ -7,8 +7,10 @@ const initialState = {
   searchResults: [],
   user: '',
   userPhoto: '',
-  userEmail: ''
+  userEmail: '',
+  savedSearchItems: []
 };
+
 const store =
   process.env.NODE_ENV === 'production'
     ? createStore(initialState)

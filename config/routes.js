@@ -38,26 +38,30 @@ module.exports.routes = {
   //  ╩ ╩╩  ╩  ╚═╝╝╚╝═╩╝╩  ╚═╝╩╝╚╝ ╩ ╚═╝
 
   /* Load Data */
-  'POST /api/v1/load-data/load-market-basket': {
-    action: 'load-data/load-market-basket'
+  "POST /api/v1/load-data/load-market-basket": {
+    action: "load-data/load-market-basket"
   },
-  'POST /api/v1/load-data/load-stop-shop': {
-    action: 'load-data/load-stop-shop'
+  "POST /api/v1/load-data/load-stop-shop": {
+    action: "load-data/load-stop-shop"
   },
-  'POST /api/v1/load-data/load-target': { action: 'load-data/load-target' },
-  'POST /api/v1/load-data/load-shaws': { action: 'load-data/load-shaws' },
-  'POST /api/v1/load-data/load-walmart': { action: 'load-data/load-walmart' },
-  'POST /api/v1/load-data/populate-elastic': {
-    action: 'load-data/populate-elastic'
+  "POST /api/v1/load-data/load-target": { action: "load-data/load-target" },
+  "POST /api/v1/load-data/load-shaws": { action: "load-data/load-shaws" },
+  "POST /api/v1/load-data/load-walmart": { action: "load-data/load-walmart" },
+  "POST /api/v1/load-data/populate-elastic": {
+    action: "load-data/populate-elastic"
   },
 
   /* Search */
-  'POST /api/v1/search/search-sales': { action: 'search/search-sales' },
+  "POST /api/v1/search/search-sales": { action: "search/search-sales" },
 
   /* User Test */
-  'GET /api/v1/user/user-info': { action: 'Auth/userTest' }
+  "GET /api/v1/user/user-info": { action: "Auth/userTest" },
+
+  /* Data Actions */
+  "GET /api/v1/user/saved-searches": { action: "Data/getSearchTerms" }, // Get User Saved Searches
 
   /* Authentication */
+  "POST /api/v1/user/check-user": { action: "Auth/checkUser" }
   //'POST /api/v1/user/register': 'UserController.register', // Register & create user
   //'POST /api/v1/user/login': 'AuthController.login', // Login
   //'POST /api/v1/user/logout': 'AuthController.logout' // Logout

@@ -9,6 +9,7 @@ ReactDOM.render(
   <Provider store={store}>
     <App />
   </Provider>,
+  /* eslint-disable no-undef */
   document.getElementById('root')
 );
 registerServiceWorker();

@@ -5,6 +5,7 @@ import { Header, Icon, Item, List, Grid, Card, Image } from 'semantic-ui-react';
 import HeaderBar from '../components/HeaderBar';
 import userActions from '../actions/user';
 import authActions from '../actions/auth';
+import SavedSearches from '../components/account/SavedSearches';
 
 // class Account extends React.Component {
 //   componentDidMount() {
@@ -27,9 +28,9 @@ import authActions from '../actions/auth';
 // }
 
 const Account = connect(
-  ['user', 'userPhoto', 'userEmail'],
+  ['user', 'userPhoto', 'userEmail', 'savedSearchItems'],
   authActions
-)(({ user, userPhoto, userEmail }) => (
+)(({ user, userPhoto, userEmail, savedSearchItems }) => (
   <div
     className={css`
       margin-top: 10px;
@@ -62,6 +63,10 @@ const Account = connect(
         </Item.Content>
       </Item>
     </Item.Group>
+    <Grid.Column>
+      <SavedSearches savedSearchItems={savedSearchItems} />
+    </Grid.Column>
+    <br />
     <Header as="h3">
       <Icon name="star" />Recommended Items
     </Header>
@@ -84,7 +89,7 @@ const Account = connect(
           </Card.Description>
         </Card.Content>
         <Card.Content extra>
-          <a>
+          <a href="/#">
             <Icon name="tags" />
             View Deal
           </a>
@@ -113,43 +118,13 @@ const Account = connect(
           </Card.Description>
         </Card.Content>
         <Card.Content extra>
-          <a>
+          <a href="/#">
             <Icon name="tags" />
             View Deal
           </a>
         </Card.Content>
       </Card>
     </Grid.Column>
-    <Header as="h3">
-      <Icon name="search" /> Most Searched Items
-    </Header>
-    <Grid.Column>
-      <Card raised>
-        <Image src="" height="200em" />
-        <Card.Content>
-          <Card.Header>
-            <span className="date">
-              <Image src="" height="25em" />
-            </span>
-            <br />
-          </Card.Header>
-          <Card.Meta />
-          <Card.Description>
-            <Header as="h3" color="green" />
-            <Header as="h4" color="red">
-              Sale Ends:
-            </Header>
-          </Card.Description>
-        </Card.Content>
-        <Card.Content extra>
-          <a>
-            <Icon name="tags" />
-            View Deal
-          </a>
-        </Card.Content>
-      </Card>
-    </Grid.Column>
-    <br />
   </div>
 ));
 

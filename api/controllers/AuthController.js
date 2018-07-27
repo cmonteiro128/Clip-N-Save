@@ -11,6 +11,30 @@ module.exports = {
       out.user = req.user;
     }
     return res.ok(out);
+  },
+  checkUser: (req, res) => {
+    if (req.user) {
+      User.findOrCreate(
+        { uid: req.user.uid },
+        {
+          uid: req.user.uid,
+          firstName: req.user.displayName,
+          email: req.user.email
+        }
+      ).exec(async (err, user, wasCreated) => {
+        if (err) {
+          return res.serverError(err);
+        }
+
+        if (wasCreated) {
+          sails.log("Created a new user: " + user.name);
+        } else {
+          sails.log("Found existing user: " + user.name);
+        }
+      });
+      return res.json(user);
+    }
+    return res.serverError(err);
   }
   /*login: function(req, res) {
     passport.authenticate('local', (err, user, info) => {

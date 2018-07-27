@@ -23,7 +23,7 @@ const getUserDataRequest = async () => {
   }
 };
 
-const userActions = store => ({
+const userActions = () => ({
   getTestInfo: () => {
     getUserDataRequest();
   }

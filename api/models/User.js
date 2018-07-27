@@ -10,15 +10,16 @@ module.exports = {
     //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
     //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
     //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
-    firstName: { type: 'string' },
-    lastName: { type: 'string' },
-    email: { type: 'string' },
+    uid: { type: "int" },
+    firstName: { type: "string" },
+    lastName: { type: "string" },
+    email: { type: "string" },
     //  ╔═╗╔═╗╔═╗╔═╗╔═╗╦╔═╗╔╦╗╦╔═╗╔╗╔╔═╗
     //  ╠═╣╚═╗╚═╗║ ║║  ║╠═╣ ║ ║║ ║║║║╚═╗
     //  ╩ ╩╚═╝╚═╝╚═╝╚═╝╩╩ ╩ ╩ ╩╚═╝╝╚╝╚═╝
     searchTerms: {
-      collection: 'searchterm',
-      via: 'owner'
+      collection: "searchterm",
+      via: "owner"
     }
   }
 };

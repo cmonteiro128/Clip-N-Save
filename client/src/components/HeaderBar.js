@@ -23,7 +23,7 @@ export default class HeaderBar extends Component {
       >
         <Menu.Item
           header
-          name="Clip 'N Save"
+          name="Clip N Save"
           className={css`
             font-size: 20px;
           `}
