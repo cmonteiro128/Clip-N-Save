@@ -1,19 +1,41 @@
 import React, { Component } from 'react';
-import { Message, Icon, List, Input, Card } from 'semantic-ui-react';
-import { css } from 'emotion';
+import { Message, Icon, List, Input, Card, Button } from 'semantic-ui-react';
+import { css, injectGlobal } from 'emotion';
 
 export default class SavedSearches extends Component {
-  handleResultSelect = (e, { result }) =>
-    this.setState({ value: result.title });
+  constructor(props) {
+    super(props);
+    this.state = {
+      savedSearchBoxInput: ''
+    };
+  }
+
+  handleSearchesInput = e =>
+    this.setState({ savedSearchBoxInput: e.target.value });
 
   render() {
-    //const { value } = this.state;
-    const { savedSearchItems } = this.props;
+    // Style Changes
+    injectGlobal(`
+      .savedSearchesBox {
+        display: block !important;
+        margin: 0 auto;
+        margin-right: 5px;
+        width: 190px;
+        float: left;
+      }
+      
+      div.savedSearchesBox > input {
+        width: inherit;
+      }
+    `);
+
+    const { savedSearchBoxInput } = this.state;
+    const { savedSearchItems, addSavedSearchItem } = this.props;
 
     let searchItemsList;
-    if (savedSearchItems !== null) {
+    if (savedSearchItems !== []) {
       searchItemsList = savedSearchItems.map(x => (
-        <Message floating>{x}</Message>
+        <Message floating>{x.query}</Message>
       ));
     }
 
@@ -31,12 +53,26 @@ export default class SavedSearches extends Component {
           </Card.Content>
           <Card.Content extra>
             <Input
-              className={css`
-                display: block !important;
-                margin: 0 auto;
-              `}
+              onChange={this.handleSearchesInput}
+              value={savedSearchBoxInput}
+              className="savedSearchesBox"
               placeholder="Search Name"
             />
+            <Button
+              className={css`
+                margin-top: 1px !important;
+              `}
+              animated="vertical"
+              onClick={() => {
+                addSavedSearchItem({ query: savedSearchBoxInput });
+                this.setState({ savedSearchBoxInput: '' });
+              }}
+            >
+              <Button.Content hidden>Add</Button.Content>
+              <Button.Content visible>
+                <Icon name="plus" />
+              </Button.Content>
+            </Button>
           </Card.Content>
         </Card>
       </React.Fragment>

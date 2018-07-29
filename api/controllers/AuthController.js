@@ -31,10 +31,9 @@ module.exports = {
         } else {
           sails.log("Found existing user: " + user.name);
         }
+        return res.json(user);
       });
-      return res.json(user);
     }
-    return res.serverError(err);
   }
   /*login: function(req, res) {
     passport.authenticate('local', (err, user, info) => {

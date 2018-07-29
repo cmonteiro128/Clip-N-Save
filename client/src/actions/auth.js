@@ -1,33 +1,54 @@
 import firebase from 'firebase/app';
 import 'firebase/auth';
-import baseURL from '../environments';
+import apiCall from './apiCall';
 
 const authActions = store => ({
-  setSignedIn: (state, data) => {
-    store.setState({ isSignedIn: data });
+  setSignedIn: async (state, data) => {
     if (firebase.auth().currentUser) {
-      firebase
+      const idToken = await firebase
         .auth()
-        .currentUser.getIdToken(/* forceRefresh */ true)
-        .then(async idToken => {
-          const response = await fetch(`${baseURL}api/v1/user/user-info`, {
-            headers: {
-              Accept: 'application/json',
-              token: idToken
-            },
-            method: 'GET', // *GET, POST, PUT, DELETE, etc.
-            mode: 'cors' // no-cors, cors, *same-origin
-          });
-          const json = await response.json();
-          console.log(json);
-          store.setState({
-            user: json.user.displayName,
-            userPhoto: json.user.photoURL,
-            userEmail: json.user.email
-          });
-          return json;
-        });
+        .currentUser.getIdToken(/* forceRefresh */ true);
+      const response = await apiCall('GET', 'user/user-info', null, idToken);
+      const json = await response.json();
+      console.log(json);
+      store.setState({
+        user: json.user.displayName,
+        userPhoto: json.user.photoURL,
+        userEmail: json.user.email,
+        token: idToken,
+        isSignedIn: data
+      });
+
+      // DB check of data
+      const dbCheckResponse = await apiCall(
+        'POST',
+        'user/check-user',
+        null,
+        idToken
+      );
+      const userJSON = await dbCheckResponse.json();
+      console.log(userJSON);
     }
+  },
+  getSavedSearchItems: async state => {
+    const response = await apiCall(
+      'GET',
+      'user/saved-searches',
+      null,
+      state.token
+    );
+    const savedSearchItems = await response.json();
+    store.setState({ savedSearchItems });
+  },
+  addSavedSearchItem: async (state, data) => {
+    const response = await apiCall(
+      'POST',
+      'user/saved-searches',
+      data,
+      state.token
+    );
+    const savedSearchItems = await response.json();
+    store.setState({ savedSearchItems });
   }
 });
 

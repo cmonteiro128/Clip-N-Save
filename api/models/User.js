@@ -10,7 +10,7 @@ module.exports = {
     //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
     //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
     //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
-    uid: { type: "int" },
+    uid: { type: "string" },
     firstName: { type: "string" },
     lastName: { type: "string" },
     email: { type: "string" },

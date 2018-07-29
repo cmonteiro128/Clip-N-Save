@@ -59,10 +59,9 @@ module.exports.routes = {
 
   /* Data Actions */
   "GET /api/v1/user/saved-searches": { action: "Data/getSearchTerms" }, // Get User Saved Searches
+  "POST /api/v1/user/saved-searches": { action: "Data/addSearchTerm" }, // Get User Saved Searches
+  "DELETE /api/v1/user/saved-searches": { action: "Data/addSearchTerm" }, // Get User Saved Searches
 
   /* Authentication */
   "POST /api/v1/user/check-user": { action: "Auth/checkUser" }
-  //'POST /api/v1/user/register': 'UserController.register', // Register & create user
-  //'POST /api/v1/user/login': 'AuthController.login', // Login
-  //'POST /api/v1/user/logout': 'AuthController.logout' // Logout
 };

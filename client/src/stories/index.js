@@ -5,7 +5,11 @@ import SavedSearches from '../components/account/SavedSearches';
 
 storiesOf('SavedSearches', module).add('with items added', () => (
   <SavedSearches
-    savedSearchItems={['Chicken Breast', 'Yogurt', 'Asparagus']}
+    savedSearchItems={[
+      { query: 'Chicken Breast' },
+      { query: 'Yogurt' },
+      { query: 'Asparagus' }
+    ]}
     addSearchItem={action('onkeydown')}
   >
     Hello Button
