@@ -39,29 +39,29 @@ module.exports.routes = {
 
   /* Load Data */
   "POST /api/v1/load-data/load-market-basket": {
-    action: "load-data/load-market-basket"
+    action: "LoadSales/loadMarketBasket"
   },
   "POST /api/v1/load-data/load-stop-shop": {
-    action: "load-data/load-stop-shop"
+    action: "LoadSales/loadStopShop"
   },
-  "POST /api/v1/load-data/load-target": { action: "load-data/load-target" },
-  "POST /api/v1/load-data/load-shaws": { action: "load-data/load-shaws" },
-  "POST /api/v1/load-data/load-walmart": { action: "load-data/load-walmart" },
+  "POST /api/v1/load-data/load-shaws": { action: "LoadSales/loadShaws" },
+  "POST /api/v1/load-data/load-walmart": { action: "LoadSales/loadWalmart" },
+  "POST /api/v1/load-data/load-target": { action: "LoadSales/loadTarget" },
   "POST /api/v1/load-data/populate-elastic": {
-    action: "load-data/populate-elastic"
+    action: "LoadSales/populateElastic"
   },
 
   /* Search */
   "POST /api/v1/search/search-sales": { action: "search/search-sales" },
 
-  /* User Test */
+  /* Authentication */
+  "POST /api/v1/user/check-user": { action: "Auth/checkUser" },
+
+  /* User Info (Firebase auth) */
   "GET /api/v1/user/user-info": { action: "Auth/userTest" },
 
   /* Data Actions */
   "GET /api/v1/user/saved-searches": { action: "Data/getSearchTerms" }, // Get User Saved Searches
-  "POST /api/v1/user/saved-searches": { action: "Data/addSearchTerm" }, // Get User Saved Searches
-  "DELETE /api/v1/user/saved-searches": { action: "Data/addSearchTerm" }, // Get User Saved Searches
-
-  /* Authentication */
-  "POST /api/v1/user/check-user": { action: "Auth/checkUser" }
+  "POST /api/v1/user/saved-searches": { action: "Data/addSearchTerm" }, // Add User Saved Search Item
+  "DELETE /api/v1/user/saved-searches": { action: "Data/addSearchTerm" } // Remove User Saved Search Item
 };

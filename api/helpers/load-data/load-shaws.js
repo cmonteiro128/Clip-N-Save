@@ -1,10 +1,10 @@
-const fetch = require('node-fetch');
-const parser = require('xml2json');
+const fetch = require("node-fetch");
+const parser = require("xml2json");
 
 module.exports = {
-  friendlyName: 'Load Data Shaws / Star Market',
+  friendlyName: "Load Data Shaws / Star Market",
 
-  description: 'Loads flyer information from Shaws / Star Market into MongoDB',
+  description: "Loads flyer information from Shaws / Star Market into MongoDB",
 
   inputs: {
     // NONE
@@ -12,12 +12,12 @@ module.exports = {
 
   exits: {
     success: {
-      responseType: ''
+      responseType: ""
     },
     notFound: {
       description:
-        'Was not able to load data from Shaws / Star Market to MongoDB',
-      responseType: 'notFound'
+        "Was not able to load data from Shaws / Star Market to MongoDB",
+      responseType: "notFound"
     }
   },
 
@@ -42,25 +42,25 @@ module.exports = {
 
     let res = await fetch(
       //Shaws and Stop and Shop actually have different links ... we'll hardcode for now until location features are implemented
-      'https://circulars-prod.cpnscdn.com/padolib/StarMarket/18_' +
+      "https://circulars-prod.cpnscdn.com/padolib/StarMarket/18_" +
         weekNumber +
-        '_STR_WC_M/store/2576/productDB.xml'
+        "_STR_WC_M/store/2576/productDB.xml"
     );
     let xml = await res.text();
     let jsonString = await parser.toJson(xml);
     let json = await JSON.parse(jsonString);
 
-    json['catalog-productdb']['catalog-product'].forEach(async element => {
+    json["catalog-productdb"]["catalog-product"].forEach(async element => {
       let itemInfo = {
         productName: element.title,
-        storeName: 'Shaws',
+        storeName: "Shaws",
         salePrice: element.sale,
         startDate: element.start,
         endDate: element.end,
         image:
-          'https://circulars-prod.cpnscdn.com/padolib/StarMarket/18_' +
+          "https://circulars-prod.cpnscdn.com/padolib/StarMarket/18_" +
           weekNumber +
-          '_STR_WC_M/products/' +
+          "_STR_WC_M/products/" +
           element.photo
       };
       await SaleItem.findOrCreate(itemInfo, itemInfo).exec(
@@ -70,9 +70,9 @@ module.exports = {
           }
 
           if (wasCreated) {
-            sails.log('Added a new sale item: ' + item.productName);
+            sails.log("Added a new sale item: " + item.productName);
           } else {
-            sails.log('Found existing sale item: ' + item.productName);
+            sails.log("Found existing sale item: " + item.productName);
           }
         }
       );

@@ -1,9 +1,9 @@
-const fetch = require('node-fetch');
+const fetch = require("node-fetch");
 
 module.exports = {
-  friendlyName: 'Load Data Market Basket',
+  friendlyName: "Load Data Market Basket",
 
-  description: 'Loads flyer information from Market Basket into MongoDB',
+  description: "Loads flyer information from Market Basket into MongoDB",
 
   inputs: {
     // NONE
@@ -11,22 +11,22 @@ module.exports = {
 
   exits: {
     success: {
-      responseType: ''
+      responseType: ""
     },
     notFound: {
-      description: 'Was not able to load data from Market Basket to MongoDB',
-      responseType: 'notFound'
+      description: "Was not able to load data from Market Basket to MongoDB",
+      responseType: "notFound"
     }
   },
 
   fn: async function(inputs, exits) {
-    let res = await fetch('https://www.shopmarketbasket.com/weekly-flyer-rest');
+    let res = await fetch("https://www.shopmarketbasket.com/weekly-flyer-rest");
     let json = await res.json();
 
     json[0].field_flyer_item.forEach(async element => {
       let itemInfo = {
         productName: element.node.title[0].value,
-        storeName: 'Market Basket',
+        storeName: "Market Basket",
         salePrice: element.node.field_deal_pricing[0].value,
         startDate: json[0].field_start_date[0].value,
         endDate: json[0].field_end_date[0].value,
@@ -39,9 +39,9 @@ module.exports = {
           }
 
           if (wasCreated) {
-            sails.log('Added a new sale item: ' + item.productName);
+            sails.log("Added a new sale item: " + item.productName);
           } else {
-            sails.log('Found existing sale item: ' + item.productName);
+            sails.log("Found existing sale item: " + item.productName);
           }
         }
       );

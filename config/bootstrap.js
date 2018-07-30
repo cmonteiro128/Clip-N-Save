@@ -9,26 +9,22 @@
  * https://sailsjs.com/config/bootstrap
  */
 
-module.exports.bootstrap = async function(done) {
+const scheduler = require("node-schedule");
 
-  // By convention, this is a good place to set up fake data during development.
-  //
-  // For example:
-  // ```
-  // // Set up fake development data (or if we already have some, avast)
-  // if (await User.count() > 0) {
-  //   return done();
-  // }
-  //
-  // await User.createEach([
-  //   { emailAddress: 'ry@example.com', fullName: 'Ryan Dahl', },
-  //   { emailAddress: 'rachael@example.com', fullName: 'Rachael Shaw', },
-  //   // etc.
-  // ]);
-  // ```
+module.exports.bootstrap = async function(done) {
+  const autoLoadData = async () => {
+    await sails.helpers.loadData.loadMarketBasket();
+    await sails.helpers.loadData.loadStopShop();
+    await sails.helpers.loadData.loadShaws();
+    await sails.helpers.loadData.populateElastic();
+    await sails.helpers.loadData.populateElastic(); // Twice, it fails sometimes
+  };
+
+  const minuteJob = scheduler.scheduleJob("0 22 * * *", function() {
+    autoLoadData();
+  });
 
   // Don't forget to trigger `done()` when this bootstrap function's logic is finished.
   // (otherwise your server will never lift, since it's waiting on the bootstrap)
   return done();
-
 };

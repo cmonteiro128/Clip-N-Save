@@ -1,7 +1,7 @@
 module.exports = {
-  friendlyName: 'Populate Elastic Search',
+  friendlyName: "Populate Elastic Search",
 
-  description: 'Loads flyer information from Market Basket into MongoDB',
+  description: "Loads flyer information from Market Basket into MongoDB",
 
   inputs: {
     // NONE
@@ -9,11 +9,11 @@ module.exports = {
 
   exits: {
     success: {
-      responseType: ''
+      responseType: ""
     },
     notFound: {
-      description: 'Was not able to populate ElasticSearch',
-      responseType: 'notFound'
+      description: "Was not able to populate ElasticSearch",
+      responseType: "notFound"
     }
   },
 
@@ -22,7 +22,7 @@ module.exports = {
 
     // Clear the index first
     await client.deleteByQuery({
-      index: 'saleitems',
+      index: "saleitems",
       body: {
         query: {
           match_all: {}
@@ -39,7 +39,7 @@ module.exports = {
     saleItems.forEach(element => {
       bulk.push(
         {
-          index: { _index: 'saleitems', _type: 'saleItem', _id: element.PANO }
+          index: { _index: "saleitems", _type: "saleItem", _id: element.PANO }
         },
         {
           productName: element.productName,
@@ -55,8 +55,8 @@ module.exports = {
     // Load the array of objects (saleItems) into Elasticsearch using a bulk call
     await client.bulk(
       {
-        index: 'saleitems',
-        type: 'saleItem',
+        index: "saleitems",
+        type: "saleItem",
         body: bulk
       },
       (err, resp, status) => {
