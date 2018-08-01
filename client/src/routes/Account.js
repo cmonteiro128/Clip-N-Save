@@ -56,8 +56,8 @@ class Account extends React.Component {
         <Grid.Column>
           <SavedSearches
             savedSearchItems={savedSearchItems}
-            addSavedSearchItem={addSavedSearchItem}
-            removeSavedSearchItem={removeSavedSearchItem}
+            addSavedSearchItem={data => addSavedSearchItem(data)}
+            removeSavedSearchItem={data => removeSavedSearchItem(data)}
           />
         </Grid.Column>
         <br />

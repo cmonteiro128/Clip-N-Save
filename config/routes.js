@@ -63,7 +63,7 @@ module.exports.routes = {
   /* Data Actions */
   "GET /api/v1/user/saved-searches": { action: "Data/getSearchTerms" }, // Get User Saved Searches
   "POST /api/v1/user/saved-searches": { action: "Data/addSearchTerm" }, // Add User Saved Search Item
-  "DELETE /api/v1/user/saved-searches": { action: "Data/addSearchTerm" }, // Remove User Saved Search Item
+  "DELETE /api/v1/user/saved-searches": { action: "Data/removeSearchTerm" }, // Remove User Saved Search Item
 
   "GET /api/v1/user/saved-items": { action: "SavedItems/getSavedItems" }, // Get User Saved Items
   "POST /api/v1/user/saved-items": { action: "SavedItems/addSavedItem" } // Add User Saved Item

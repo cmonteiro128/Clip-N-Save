@@ -30,7 +30,11 @@ export default class SavedSearches extends Component {
     `);
 
     const { savedSearchBoxInput } = this.state;
-    const { savedSearchItems, addSavedSearchItem } = this.props;
+    const {
+      savedSearchItems,
+      addSavedSearchItem,
+      removeSavedSearchItem
+    } = this.props;
 
     let searchItemsList;
     if (savedSearchItems !== []) {
@@ -39,6 +43,9 @@ export default class SavedSearches extends Component {
           {x.query}
           <Button
             icon
+            onClick={() => {
+              removeSavedSearchItem({ id: x.id });
+            }}
             className={css`
               position: absolute;
               top: 13%;
