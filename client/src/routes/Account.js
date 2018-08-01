@@ -17,7 +17,8 @@ class Account extends React.Component {
       userEmail,
       user,
       savedSearchItems,
-      addSavedSearchItem
+      addSavedSearchItem,
+      removeSavedSearchItem
     } = this.props;
 
     return (
@@ -56,6 +57,7 @@ class Account extends React.Component {
           <SavedSearches
             savedSearchItems={savedSearchItems}
             addSavedSearchItem={addSavedSearchItem}
+            removeSavedSearchItem={removeSavedSearchItem}
           />
         </Grid.Column>
         <br />
