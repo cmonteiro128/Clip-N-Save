@@ -1,5 +1,14 @@
 import React, { Component } from 'react';
-import { Message, Icon, List, Input, Card, Button } from 'semantic-ui-react';
+import {
+  Message,
+  Icon,
+  Grid,
+  Input,
+  Card,
+  Button,
+  Divider,
+  Segment
+} from 'semantic-ui-react';
 import { css, injectGlobal } from 'emotion';
 
 export default class SavedSearches extends Component {
@@ -17,10 +26,9 @@ export default class SavedSearches extends Component {
     // Style Changes
     injectGlobal(`
       .savedSearchesBox {
-        display: block !important;
         margin: 0 auto;
         margin-right: 5px;
-        width: 190px;
+        width: 80%;
         float: left;
       }
       
@@ -35,19 +43,16 @@ export default class SavedSearches extends Component {
     let searchItemsList;
     if (savedSearchItems !== []) {
       searchItemsList = savedSearchItems.map(x => (
-        <Message floating>
-          {x.query}
-          <Button
-            icon
-            className={css`
-              position: absolute;
-              top: 13%;
-              left: 75%;
-            `}
-          >
-            <Icon name="delete" />
-          </Button>
-        </Message>
+        <Grid.Row>
+          <Grid.Column width={12}>
+            <Segment>{x.query}</Segment>
+          </Grid.Column>
+          <Grid.Column width={4} verticalAlign="middle">
+            <Button icon>
+              <Icon name="remove" />
+            </Button>
+          </Grid.Column>
+        </Grid.Row>
       ));
     }
 
@@ -60,7 +65,9 @@ export default class SavedSearches extends Component {
             </Card.Header>
             <Card.Meta>Add a new saved search below</Card.Meta>
             <Card.Description>
-              <List>{searchItemsList}</List>
+              <Grid columns={2} container divided stackable>
+                {searchItemsList}
+              </Grid>
             </Card.Description>
           </Card.Content>
           <Card.Content extra>
