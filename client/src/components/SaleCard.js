@@ -52,7 +52,7 @@ const SaleCard = props => {
         <Card.Content extra>
           <a href="/#">
             <Icon name="tags" />
-            View Deal
+            Save Deal
           </a>
         </Card.Content>
       </Card>
