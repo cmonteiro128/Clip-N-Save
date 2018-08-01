@@ -4,12 +4,10 @@ import { connect } from 'unistore/react';
 import {
   Header,
   Icon,
-  Item,
   List,
   Grid,
   Card,
   Image,
-  Container,
   Divider
 } from 'semantic-ui-react';
 import HeaderBar from '../components/HeaderBar';

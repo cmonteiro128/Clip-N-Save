@@ -2,9 +2,12 @@ import React, { Component } from 'react';
 import { css } from 'emotion';
 import { Menu, Icon } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
+import firebase from 'firebase';
+import { connect } from 'unistore/react';
 import SearchBox from './SearchBox';
+import authActions from '../actions/auth';
 
-export default class HeaderBar extends Component {
+class HeaderBar extends Component {
   state = {};
 
   handleItemClick = (e, { name }) => this.setState({ activeItem: name });
@@ -78,6 +81,10 @@ export default class HeaderBar extends Component {
               `}
               name="sign out"
               position="left"
+              onClick={() => {
+                firebase.auth().signOut();
+                this.props.setSignedIn(false);
+              }}
             >
               <Icon name="log out" />
             </Menu.Item>
@@ -87,3 +94,8 @@ export default class HeaderBar extends Component {
     );
   }
 }
+
+export default connect(
+  'isSignedIn',
+  authActions
+)(HeaderBar);

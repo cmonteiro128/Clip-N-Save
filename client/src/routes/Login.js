@@ -42,8 +42,9 @@ class Login extends React.Component {
         `}
       >
         <HeaderBar />
-        <p>You are signed out</p>
-        <p>Prop isSignedIn: {this.props.isSignedIn.toString()}</p>
+        <br />
+        <br />
+        <br />
         <StyledFirebaseAuth
           uiConfig={this.state.uiConfig}
           firebaseAuth={firebase.auth()}
