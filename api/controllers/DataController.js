@@ -47,5 +47,28 @@ module.exports = {
     } else {
       return res.send("You are not permitted to perform this action.", 401);
     }
+  },
+  removeSearchTerm: async (req, res) => {
+    if (req.user) {
+      //Create our new search term and get its ID
+      const searchTermID = req.body.id;
+
+      const userToRemoveSearchTerm = await User.find({
+        uid: req.user.uid
+      });
+
+      await User.removeFromCollection(
+        userToRemoveSearchTerm[0].id,
+        "searchTerms"
+      ).members([searchTermID]);
+
+      const updatedUser = await User.find({
+        uid: req.user.uid
+      }).populate("searchTerms");
+
+      return res.json(updatedUser[0].searchTerms);
+    } else {
+      return res.send("You are not permitted to perform this action.", 401);
+    }
   }
 };

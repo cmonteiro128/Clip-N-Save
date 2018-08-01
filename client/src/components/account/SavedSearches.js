@@ -35,7 +35,19 @@ export default class SavedSearches extends Component {
     let searchItemsList;
     if (savedSearchItems !== []) {
       searchItemsList = savedSearchItems.map(x => (
-        <Message floating>{x.query}</Message>
+        <Message floating>
+          {x.query}
+          <Button
+            icon
+            className={css`
+              position: absolute;
+              top: 13%;
+              left: 75%;
+            `}
+          >
+            <Icon name="delete" />
+          </Button>
+        </Message>
       ));
     }
 

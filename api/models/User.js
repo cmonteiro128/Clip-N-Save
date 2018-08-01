@@ -19,7 +19,11 @@ module.exports = {
     //  ╩ ╩╚═╝╚═╝╚═╝╚═╝╩╩ ╩ ╩ ╩╚═╝╝╚╝╚═╝
     searchTerms: {
       collection: "searchterm",
-      via: "owner"
+      via: "owners"
+    },
+    saleItems: {
+      collection: "saleitem",
+      via: "owners"
     }
   }
 };
