@@ -19,7 +19,7 @@ export default class SavedSearches extends Component {
       .savedSearchesBox {
         margin: 0 auto;
         margin-right: 5px;
-        width: 80%;
+        width: 75%;
         float: left;
       }
       

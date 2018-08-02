@@ -12,6 +12,8 @@ import {
 } from 'semantic-ui-react';
 import HeaderBar from '../components/HeaderBar';
 import authActions from '../actions/auth';
+import searchItemActions from '../actions/searchItem';
+import combineActions from '../actions/combineActions';
 import SavedSearches from '../components/account/SavedSearches';
 
 class Account extends React.Component {
@@ -107,7 +109,8 @@ class Account extends React.Component {
   }
 }
 
+const allActions = combineActions(authActions, searchItemActions);
 export default connect(
   ['user', 'userPhoto', 'userEmail', 'savedSearchItems'],
-  authActions
+  allActions
 )(Account);

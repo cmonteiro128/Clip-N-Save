@@ -2,13 +2,10 @@
 export default function combineActions(...allActions) {
   return store =>
     allActions.reduce((combined, actions) => {
-      for (const i in actions) {
+      actions = actions(store);
+      for (let i in actions) {
+        if (combined[i]) throw new Error('Have a repeat action name: ' + i);
         let action = actions[i];
-        const value = action.name;
-        if (typeof action === 'function')
-          action = Object.defineProperty(action(store), 'name', {
-            value
-          });
         combined[i] = action;
       }
       return combined;
