@@ -40,7 +40,7 @@ export default class HeaderBar extends Component {
             position="left"
           />
         </Link>
-        <Link to="/" href="/">
+        <Link to="/deals" href="/deals">
           <Menu.Item
             active={activeItem === 'saved deals'}
             link

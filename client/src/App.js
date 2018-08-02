@@ -7,6 +7,7 @@ import UnauthenticatedRoute from './routes/UnauthenticatedRoute';
 import Home from './routes/Home';
 import Login from './routes/Login';
 import Account from './routes/Account';
+import SavedDeals from './routes/SavedDeals';
 
 export default class App extends React.Component {
   constructor() {
@@ -31,6 +32,7 @@ export default class App extends React.Component {
             <Route exact path="/" component={Home} />
             <UnauthenticatedRoute path="/login/" component={Login} />
             <AuthenticatedRoute path="/account/" component={Account} />
+            <AuthenticatedRoute path="/deals/" component={SavedDeals} />
           </Switch>
         </Router>
       </div>
