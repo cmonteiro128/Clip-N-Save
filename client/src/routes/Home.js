@@ -8,9 +8,9 @@ import SaleCard from '../components/SaleCard';
 import saleItemActions from '../actions/saleItem';
 
 const Home = connect(
-  'searchResults',
+  ['searchResults', 'isSignedIn'],
   saleItemActions
-)(({ searchResults, addSavedSaleItem }) => {
+)(({ searchResults, isSignedIn, addSavedSaleItem }) => {
   const cards =
     searchResults.length > 0 ? (
       searchResults.map((element, index) => {
@@ -28,6 +28,7 @@ const Home = connect(
             storeName={item.storeName}
             best={best}
             addSavedSaleItem={() => addSavedSaleItem({ id: item.mongoID })}
+            isSignedIn={isSignedIn}
           />
         );
       })

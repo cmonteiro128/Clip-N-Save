@@ -56,10 +56,17 @@ const SaleCard = props => {
           </Card.Description>
         </Card.Content>
         <Card.Content extra textAlign="center">
-          <Button fluid color="teal" onClick={() => props.addSavedSaleItem()}>
-            <Icon name="tags" />
-            Save Deal
-          </Button>
+          {props.isSignedIn ? (
+            <Button fluid color="teal" onClick={() => props.addSavedSaleItem()}>
+              <Icon name="tags" />
+              Save Deal
+            </Button>
+          ) : (
+            <Button fluid color="grey">
+              <Icon name="tags" />
+              Sign In To Save Deal
+            </Button>
+          )}
         </Card.Content>
       </Card>
     </Grid.Column>
