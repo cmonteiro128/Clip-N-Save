@@ -17,7 +17,7 @@ module.exports.bootstrap = async function(done) {
     await sails.helpers.loadData.loadStopShop();
     await sails.helpers.loadData.loadShaws();
     await sails.helpers.loadData.populateElastic();
-    await sails.helpers.loadData.populateElastic(); // Twice, it fails sometimes
+    //await sails.helpers.loadData.populateElastic(); // Twice, it fails sometimes
   };
 
   const minuteJob = scheduler.scheduleJob("0 22 * * *", function() {

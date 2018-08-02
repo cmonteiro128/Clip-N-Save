@@ -8,26 +8,48 @@
 module.exports = {
   getSavedItems: async (req, res) => {
     if (req.user) {
-      const userWithSaleItems = await User.find({
+      const userWithSearchTerms = await User.find({
         uid: req.user.uid
       }).populate("saleItems");
-      return res.json(userWithSaleItems[0].savedItems);
+      return res.json(userWithSearchTerms[0].searchTerms);
     } else {
       return res.send("You are not permitted to perform this action.", 401);
     }
   },
   addSavedItem: async (req, res) => {
     if (req.user) {
-      //Create our new sale iterm and get its ID
-      let saleItemID = req.body.id;
+      const savedItemID = req.body.id;
 
-      const userToAddSaleItem = await User.find({
+      const userToAddSavedItem = await User.find({
         uid: req.user.uid
       });
 
-      await User.addToCollection(userToAddSaleItem[0].id, "saleItems").members([
-        saleItemID
-      ]);
+      await User.addToCollection(userToAddSavedItem[0].id, "saleItems").members(
+        [savedItemID]
+      );
+
+      const updatedUser = await User.find({
+        uid: req.user.uid
+      }).populate("saleItems");
+
+      return res.json(updatedUser[0].saleItems);
+    } else {
+      return res.send("You are not permitted to perform this action.", 401);
+    }
+  },
+  removeSavedItem: async (req, res) => {
+    if (req.user) {
+      //Create our new search term and get its ID
+      const savedItemID = req.body.id;
+
+      const userToRemoveSavedItem = await User.find({
+        uid: req.user.uid
+      });
+
+      await User.removeFromCollection(
+        userToRemoveSavedItem[0].id,
+        "saleItems"
+      ).members([savedItemID]);
 
       const updatedUser = await User.find({
         uid: req.user.uid

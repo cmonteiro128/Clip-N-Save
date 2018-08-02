@@ -5,8 +5,12 @@ import { connect } from 'unistore/react';
 import HeaderBar from '../components/HeaderBar';
 import WelcomeMessage from '../components/WelcomeMessage';
 import SaleCard from '../components/SaleCard';
+import saleItemActions from '../actions/saleItem';
 
-const Home = connect('searchResults')(({ searchResults }) => {
+const Home = connect(
+  'searchResults',
+  saleItemActions
+)(({ searchResults, addSavedSaleItem }) => {
   const cards =
     searchResults.length > 0 ? (
       searchResults.map((element, index) => {
@@ -23,6 +27,7 @@ const Home = connect('searchResults')(({ searchResults }) => {
             salePrice={item.salePrice}
             storeName={item.storeName}
             best={best}
+            addSavedSaleItem={() => addSavedSaleItem({ id: item.mongoID })}
           />
         );
       })

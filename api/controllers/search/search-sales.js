@@ -1,23 +1,23 @@
 module.exports = {
-  friendlyName: 'Search sale items',
+  friendlyName: "Search sale items",
 
-  description: 'Searches items through query of product name',
+  description: "Searches items through query of product name",
 
   inputs: {
     productName: {
-      description: 'The name of the product to search for',
-      type: 'string',
+      description: "The name of the product to search for",
+      type: "string",
       required: true
     }
   },
 
   exits: {
     success: {
-      responseType: ''
+      responseType: ""
     },
     notFound: {
-      description: 'Was not able to perform a search',
-      responseType: 'notFound'
+      description: "Was not able to perform a search",
+      responseType: "notFound"
     }
   },
 
@@ -26,8 +26,8 @@ module.exports = {
 
     client.search(
       {
-        index: 'saleitems',
-        type: 'saleItem',
+        index: "saleitems",
+        type: "saleItem",
         body: {
           query: {
             bool: {
@@ -40,14 +40,14 @@ module.exports = {
                     {
                       range: {
                         startDate: {
-                          lte: 'now'
+                          lte: "now+1d/d"
                         }
                       }
                     },
                     {
                       range: {
                         endDate: {
-                          gte: 'now'
+                          gte: "now+1d/d"
                         }
                       }
                     }
@@ -60,12 +60,12 @@ module.exports = {
       },
       (error, response, status) => {
         if (error) {
-          sails.log('search error: ' + error);
+          sails.log("search error: " + error);
           return exits.notFound();
         } else {
-          sails.log('--- Response ---');
+          sails.log("--- Response ---");
           sails.log(response);
-          sails.log('--- Hits ---');
+          sails.log("--- Hits ---");
           response.hits.hits.forEach(hit => {
             sails.log(hit);
           });

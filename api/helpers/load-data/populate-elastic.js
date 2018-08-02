@@ -31,7 +31,7 @@ module.exports = {
     });
 
     // We want to get all data in Mongo and add it to ElasticSearch
-    var saleItems = await SaleItem.find();
+    const saleItems = await SaleItem.find();
 
     let bulk = [];
 
@@ -47,7 +47,8 @@ module.exports = {
           storeName: element.storeName,
           startDate: element.startDate,
           endDate: element.endDate,
-          image: element.image
+          image: element.image,
+          mongoID: element.id
         }
       );
     });

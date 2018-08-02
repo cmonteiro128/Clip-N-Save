@@ -50,7 +50,7 @@ class Account extends React.Component {
         </Header>
         <Card.Group centered itemsPerRow={4}>
           <Card>
-            <Image src={userPhoto} />
+            <Image src={userPhoto} centered inline />
             <Card.Content>
               <Card.Header>{user}</Card.Header>
               <Card.Meta>

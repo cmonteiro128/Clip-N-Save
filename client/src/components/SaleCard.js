@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, Icon, Card, Header, Grid } from 'semantic-ui-react';
+import { Image, Icon, Card, Header, Grid, Button } from 'semantic-ui-react';
 
 const SaleCard = props => {
   let logoSource;
@@ -50,10 +50,10 @@ const SaleCard = props => {
           </Card.Description>
         </Card.Content>
         <Card.Content extra>
-          <a href="/#">
+          <Button color="teal" onClick={() => props.addSavedSaleItem()}>
             <Icon name="tags" />
             Save Deal
-          </a>
+          </Button>
         </Card.Content>
       </Card>
     </Grid.Column>
