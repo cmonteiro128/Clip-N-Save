@@ -1,7 +1,7 @@
 import React from 'react';
 import { css } from 'emotion';
 import { connect } from 'unistore/react';
-// import { Grid, Message } from 'semantic-ui-react';
+import {} from 'semantic-ui-react';
 import HeaderBar from '../components/HeaderBar';
 
 class SavedDeals extends React.Component {

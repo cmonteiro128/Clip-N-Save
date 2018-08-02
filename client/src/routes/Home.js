@@ -1,9 +1,8 @@
 import React from 'react';
 import { css } from 'emotion';
-import { Grid, Message } from 'semantic-ui-react';
+import { Grid } from 'semantic-ui-react';
 import { connect } from 'unistore/react';
 import HeaderBar from '../components/HeaderBar';
-import WelcomeMessage from '../components/WelcomeMessage';
 import SaleCard from '../components/SaleCard';
 import saleItemActions from '../actions/saleItem';
 
@@ -11,6 +10,7 @@ const Home = connect(
   ['searchResults', 'isSignedIn'],
   saleItemActions
 )(({ searchResults, isSignedIn, addSavedSaleItem }) => {
+  console.log(`results: ${searchResults.length}`);
   const cards =
     searchResults.length > 0 ? (
       searchResults.map((element, index) => {
@@ -33,15 +33,7 @@ const Home = connect(
         );
       })
     ) : (
-      <Message
-        className={css`
-          position: absolute;
-          top: 50% !important;
-          left: 40%;
-        `}
-      >
-        No Results. Please enter a search term in the box above
-      </Message>
+      <div />
     );
 
   return (
@@ -51,7 +43,6 @@ const Home = connect(
       `}
     >
       <HeaderBar />
-      <WelcomeMessage />
       <Grid columns={6}>{cards}</Grid>
     </div>
   );
