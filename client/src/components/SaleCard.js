@@ -22,9 +22,15 @@ const SaleCard = props => {
     price += '0';
   }
   return (
-    <Grid.Column>
+    <Grid.Column
+      computer={5}
+      largeScreen={3}
+      widescreen={3}
+      tablet={7}
+      mobile={16}
+    >
       <Card raised>
-        <Image src={props.image} height="200em" />
+        <Image src={props.image} height="200em" centered inline />
         <Card.Content>
           <Card.Header>
             <span className="date">

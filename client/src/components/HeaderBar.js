@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { css } from 'emotion';
-import { Menu, Icon } from 'semantic-ui-react';
+import { Menu, Icon, Grid } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import firebase from 'firebase';
 import { connect } from 'unistore/react';
@@ -15,82 +15,87 @@ class HeaderBar extends Component {
   render() {
     const { activeItem } = this.state;
     return (
-      <Menu
-        color="teal"
-        inverted
-        borderless
-        size="small"
-        className={css`
-          margin: 0 auto !important;
-        `}
-      >
-        <Menu.Item
-          header
-          name="Clip N Save"
-          className={css`
-            font-size: 20px;
-          `}
-        />
-        <Link to="/" href="/">
-          <Menu.Item
-            active={activeItem === 'search deals'}
-            link
+      <Grid>
+        <Grid.Column mobile={16}>
+          <Menu
+            color="teal"
+            inverted
+            borderless
+            stackable
+            size="small"
             className={css`
-              font-size: 17px;
-              height: 100%;
+              margin: 0 auto !important;
             `}
-            name="search deals"
-            position="left"
-          />
-        </Link>
-        <Link to="/deals" href="/deals">
-          <Menu.Item
-            active={activeItem === 'saved deals'}
-            link
-            className={css`
-              font-size: 17px;
-              height: 100%;
-            `}
-            name="saved deals"
-            position="left"
-          />
-        </Link>
-        <Menu.Menu position="right">
-          <Menu.Item name="" position="right">
-            <SearchBox />
-          </Menu.Item>
-          <Link to="/account" href="/account">
+          >
             <Menu.Item
-              active={activeItem === 'my account'}
-              link
+              header
+              name="Clip N Save"
               className={css`
-                font-size: 17px;
-                height: 100%;
+                font-size: 20px;
               `}
-              name="my account"
-              position="left"
             />
-          </Link>
-          <Link to="/login" href="/login">
-            <Menu.Item
-              active={activeItem === 'sign out'}
-              link
-              className={css`
-                font-size: 17px;
-                height: 100%;
-              `}
-              name="sign out"
-              position="left"
-              onClick={() => {
-                firebase.auth().signOut();
-                this.props.setSignedIn(false);
-              }}
-            >
-              <Icon name="log out" />
-            </Menu.Item>
-          </Link>
-        </Menu.Menu>
-      </Menu>
+            <Link to="/" href="/">
+              <Menu.Item
+                active={activeItem === 'search deals'}
+                link
+                className={css`
+                  font-size: 17px;
+                  height: 100%;
+                `}
+                name="search deals"
+                position="left"
+              />
+            </Link>
+            <Link to="/deals" href="/deals">
+              <Menu.Item
+                active={activeItem === 'saved deals'}
+                link
+                className={css`
+                  font-size: 17px;
+                  height: 100%;
+                `}
+                name="saved deals"
+                position="left"
+              />
+            </Link>
+            <Link to="/account" href="/account">
+              <Menu.Item
+                active={activeItem === 'my account'}
+                link
+                className={css`
+                  font-size: 17px;
+                  height: 100%;
+                `}
+                name="my account"
+                position="left"
+              />
+            </Link>
+            <Link to="/login" href="/login">
+              <Menu.Item
+                active={activeItem === 'sign out'}
+                link
+                className={css`
+                  font-size: 17px;
+                  height: 100%;
+                `}
+                name="sign out"
+                position="left"
+                onClick={() => {
+                  firebase.auth().signOut();
+                  this.props.setSignedIn(false);
+                }}
+              >
+                <Icon name="log out" />
+              </Menu.Item>
+            </Link>
+            <Menu.Menu position="right">
+              <Menu.Item name="" position="right">
+                <SearchBox />
+              </Menu.Item>
+            </Menu.Menu>
+          </Menu>
+        </Grid.Column>
+      </Grid>
     );
   }
 }

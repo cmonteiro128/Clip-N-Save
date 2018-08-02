@@ -19,7 +19,7 @@ export default class SavedSearches extends Component {
       .savedSearchesBox {
         margin: 0 auto;
         margin-right: 5px;
-        width: 75%;
+        width: 190px;
         float: left;
       }
       
@@ -39,10 +39,15 @@ export default class SavedSearches extends Component {
     if (savedSearchItems !== []) {
       searchItemsList = savedSearchItems.map(x => (
         <Grid.Row>
-          <Grid.Column width={12}>
+          <Grid.Column computer={12} largeScreen={12} mobile={8}>
             <Segment>{x.query}</Segment>
           </Grid.Column>
-          <Grid.Column width={4} verticalAlign="middle">
+          <Grid.Column
+            computer={2}
+            largeScreen={2}
+            mobile={2}
+            verticalAlign="middle"
+          >
             <Button
               icon
               onClick={() => {
@@ -67,6 +72,7 @@ export default class SavedSearches extends Component {
             <Card.Description>
               <Grid columns={2} container divided stackable>
                 {searchItemsList}
+                <br />
               </Grid>
             </Card.Description>
           </Card.Content>
