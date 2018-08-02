@@ -8,7 +8,8 @@ import {
   Grid,
   Card,
   Image,
-  Divider
+  Divider,
+  Item
 } from 'semantic-ui-react';
 import HeaderBar from '../components/HeaderBar';
 import authActions from '../actions/auth';
@@ -45,63 +46,58 @@ class Account extends React.Component {
           </Header.Content>
         </Header>
         <Divider />
-        <Header as="h3" align="center">
-          <Icon name="user" /> Account Information
-        </Header>
-        <Card.Group centered itemsPerRow={4}>
-          <Card>
-            <Image src={userPhoto} />
-            <Card.Content>
-              <Card.Header>{user}</Card.Header>
-              <Card.Meta>
-                <span className="date">Description</span>
-              </Card.Meta>
-              <Card.Description>
-                <List>
-                  <List.Item>Full Name: {user}</List.Item>
-                  <List.Item>Email: {userEmail}</List.Item>
-                </List>
-              </Card.Description>
-            </Card.Content>
-            <Card.Content extra />
-          </Card>
-          <SavedSearches
-            savedSearchItems={savedSearchItems}
-            addSavedSearchItem={data => addSavedSearchItem(data)}
-            removeSavedSearchItem={data => removeSavedSearchItem(data)}
-          />
-        </Card.Group>
-        <br />
-        <Divider />
-        <Header as="h3" align="center">
-          <Icon name="star" />Recommended Items
-        </Header>
-        <Grid.Column>
-          <Card raised>
-            <Image src="" height="200em" />
-            <Card.Content>
-              <Card.Header>
-                <span className="date">
-                  <Image src="" height="25em" />
-                </span>
-                <br />
-              </Card.Header>
-              <Card.Meta />
-              <Card.Description>
-                <Header as="h3" color="green" />
-                <Header as="h4" color="red">
-                  Sale Ends:
-                </Header>
-              </Card.Description>
-            </Card.Content>
-            <Card.Content extra>
-              <a href="/#">
-                <Icon name="tags" />
-                View Deal
-              </a>
-            </Card.Content>
-          </Card>
-        </Grid.Column>
+        <Grid columns={2}>
+          <Grid.Column largeScreen={4} mobile={16}>
+            <Header as="h3" align="left">
+              <Icon name="user" />User Information
+            </Header>
+            <Item.Group>
+              <Item>
+                <Item.Image size="tiny" src={userPhoto} inline centered />
+                <Item.Content>
+                  <Item.Header as="h2">{user}</Item.Header>
+                  <Item.Meta>Email: {userEmail}</Item.Meta>
+                </Item.Content>
+              </Item>
+            </Item.Group>
+            <SavedSearches
+              savedSearchItems={savedSearchItems}
+              addSavedSearchItem={data => addSavedSearchItem(data)}
+              removeSavedSearchItem={data => removeSavedSearchItem(data)}
+            />
+          </Grid.Column>
+          <Grid.Column largeScreen={12} mobile={16} widescreen={12} tablet={12}>
+            <Header as="h3" align="left">
+              <Icon name="star" />Recommended Items
+            </Header>
+            <Grid.Column>
+              <Card raised>
+                <Image src="" height="200em" />
+                <Card.Content>
+                  <Card.Header>
+                    <span className="date">
+                      <Image src="" height="25em" />
+                    </span>
+                    <br />
+                  </Card.Header>
+                  <Card.Meta />
+                  <Card.Description>
+                    <Header as="h3" color="green" />
+                    <Header as="h4" color="red">
+                      Sale Ends:
+                    </Header>
+                  </Card.Description>
+                </Card.Content>
+                <Card.Content extra>
+                  <a href="/#">
+                    <Icon name="tags" />
+                    View Deal
+                  </a>
+                </Card.Content>
+              </Card>
+            </Grid.Column>
+          </Grid.Column>
+        </Grid>
         <br />
         <br />
       </div>
