@@ -3,7 +3,7 @@
  * @description :: Policy that attaches the firebase admin sdk onto `req.firebase`
  */
 
-const firebase = require('firebase-admin');
+const firebase = require("firebase-admin");
 const config = sails.config.firebase;
 
 firebase.initializeApp({
