@@ -35,7 +35,7 @@ module.exports = {
       }
     );
     let flyerIDJSON = await flyerIDRes.json();
-    sails.log(flyerIDJSON);
+    //sails.log(flyerIDJSON);
     const flyerID = flyerIDJSON[flyerIDJSON.length - 1].flyer_id;
 
     let res = await fetch(
