@@ -55,8 +55,8 @@ const SaleCard = props => {
             </Header>
           </Card.Description>
         </Card.Content>
-        <Card.Content extra>
-          <Button color="teal" onClick={() => props.addSavedSaleItem()}>
+        <Card.Content extra textAlign="center">
+          <Button fluid color="teal" onClick={() => props.addSavedSaleItem()}>
             <Icon name="tags" />
             Save Deal
           </Button>
