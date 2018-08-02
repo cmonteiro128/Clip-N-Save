@@ -7,14 +7,18 @@ const SearchBox = connect(
   'currentSearchInput',
   searchActions
 )(({ updateCurrentSearchText }) => (
-  <Input
-    icon="food"
-    placeholder="Search..."
-    aligned="left"
-    onChange={(e, { value }) => {
-      updateCurrentSearchText(value);
-    }}
-  />
+  <div>
+    <Input
+      icon="food"
+      placeholder="Search..."
+      aligned="left"
+      size="large"
+      onChange={(e, { value }) => {
+        updateCurrentSearchText(value);
+      }}
+    />{' '}
+    <br />{' '}
+  </div>
 ));
 
 export default SearchBox;

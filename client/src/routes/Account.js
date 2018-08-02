@@ -4,7 +4,6 @@ import { connect } from 'unistore/react';
 import {
   Header,
   Icon,
-  List,
   Grid,
   Card,
   Image,
