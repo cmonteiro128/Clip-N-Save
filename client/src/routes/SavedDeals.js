@@ -8,30 +8,6 @@ import combineActions from '../actions/combineActions';
 import authActions from '../actions/auth';
 import saleItemActions from '../actions/saleItem';
 
-const cards = '';
-// savedSaleItems.length > 0 ? (
-//   savedSaleItems.map((element, index) => {
-//     console.log(element);
-//     /* eslint-disable no-underscore-dangle */
-//     const item = element._source;
-//     let best;
-//     if (index === 0) best = true;
-//     return (
-//       <SaleCard
-//         productName={item.productName}
-//         endDate={item.endDate}
-//         image={item.image}
-//         salePrice={item.salePrice}
-//         storeName={item.storeName}
-//         best={best}
-//         isSignedIn={isSignedIn}
-//       />
-//     );
-//   })
-// ) : (
-//   <div />
-// );
-
 class SavedDeals extends React.Component {
   componentDidMount() {
     this.props.getSavedSaleItems();
@@ -40,7 +16,24 @@ class SavedDeals extends React.Component {
   render() {
     const { savedSaleItems } = this.props;
 
-    console.log(savedSaleItems);
+    const cards =
+      savedSaleItems != null ? (
+        savedSaleItems.map(element => {
+          return (
+            <SaleCard
+              productName={element.productName}
+              endDate={element.endDate}
+              image={element.image}
+              salePrice={element.salePrice}
+              storeName={element.storeName}
+              best={false}
+              isSignedIn
+            />
+          );
+        })
+      ) : (
+        <div />
+      );
 
     return (
       <div
