@@ -1,6 +1,6 @@
 {
   "name": "qsave",
   "alias": "clipnsave.now.sh",
-  "type": "docker",
+  "type": "npm",
   "public": true
 }
