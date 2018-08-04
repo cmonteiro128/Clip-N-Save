@@ -61,7 +61,8 @@ module.exports = {
                 }
               }
             }
-          }
+          },
+          sort: [{ salePrice: { order: "asc", mode: "min" } }]
         }
       },
       (error, response, status) => {
@@ -69,11 +70,11 @@ module.exports = {
           sails.log("search error: " + error);
           return exits.notFound();
         } else {
-          sails.log("--- Response ---");
-          sails.log(response);
-          sails.log("--- Hits ---");
+          //sails.log("--- Response ---");
+          //sails.log(response);
+          //sails.log("--- Hits ---");
           response.hits.hits.forEach(hit => {
-            sails.log(hit);
+            //sails.log(hit);
           });
           return exits.success(response.hits.hits);
         }

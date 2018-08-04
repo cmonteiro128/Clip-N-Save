@@ -9,7 +9,10 @@ const searchItemActions = store => ({
       state.token
     );
     const savedSearchItems = await response.json();
-    store.setState({ savedSearchItems });
+    store.setState({
+      savedSearchItems: savedSearchItems.searchTerms,
+      recItems: savedSearchItems.recItems
+    });
   },
   addSavedSearchItem: async (state, data) => {
     const response = await apiCall(
@@ -19,7 +22,10 @@ const searchItemActions = store => ({
       state.token
     );
     const savedSearchItems = await response.json();
-    store.setState({ savedSearchItems });
+    store.setState({
+      savedSearchItems: savedSearchItems.searchTerms,
+      recItems: savedSearchItems.recItems
+    });
   },
   removeSavedSearchItem: async (state, data) => {
     const response = await apiCall(
@@ -29,7 +35,10 @@ const searchItemActions = store => ({
       state.token
     );
     const savedSearchItems = await response.json();
-    store.setState({ savedSearchItems });
+    store.setState({
+      savedSearchItems: savedSearchItems.searchTerms,
+      recItems: savedSearchItems.recItems
+    });
   }
 });
 

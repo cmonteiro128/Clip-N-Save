@@ -24,6 +24,10 @@ module.exports = {
     saleItems: {
       collection: "SaleItem",
       via: "owners"
+    },
+    recommendedItems: {
+      collection: "SaleItem",
+      via: "ownersRec"
     }
   }
 };

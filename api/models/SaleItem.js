@@ -11,6 +11,11 @@ module.exports = {
     owners: {
       collection: "User",
       via: "saleItems"
+    },
+
+    ownersRec: {
+      collection: "User",
+      via: "saleItems"
     }
   }
 };

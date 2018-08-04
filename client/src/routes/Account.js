@@ -15,6 +15,7 @@ import authActions from '../actions/auth';
 import searchItemActions from '../actions/searchItem';
 import combineActions from '../actions/combineActions';
 import SavedSearches from '../components/account/SavedSearches';
+import SaleCard from '../components/SaleCard';
 
 class Account extends React.Component {
   componentDidMount() {
@@ -28,8 +29,28 @@ class Account extends React.Component {
       user,
       savedSearchItems,
       addSavedSearchItem,
-      removeSavedSearchItem
+      removeSavedSearchItem,
+      recItems
     } = this.props;
+
+    const recItemCards =
+      recItems != null ? (
+        recItems.map(element => {
+          return (
+            <SaleCard
+              productName={element.productName}
+              endDate={element.endDate}
+              image={element.image}
+              salePrice={element.salePrice}
+              storeName={element.storeName}
+              best={false}
+              isSignedIn
+            />
+          );
+        })
+      ) : (
+        <div />
+      );
 
     return (
       <div
@@ -46,7 +67,7 @@ class Account extends React.Component {
         </Header>
         <Divider />
         <Grid columns={2}>
-          <Grid.Column largeScreen={4} mobile={16}>
+          <Grid.Column largeScreen={4} wideScreen={4} mobile={16}>
             <Header as="h3" align="left">
               <Icon name="user" />User Information
             </Header>
@@ -65,40 +86,13 @@ class Account extends React.Component {
               removeSavedSearchItem={data => removeSavedSearchItem(data)}
             />
           </Grid.Column>
-          <Grid.Column largeScreen={12} mobile={16} widescreen={12} tablet={12}>
+          <Grid.Column largeScreen={10} mobile={16} widescreen={10} tablet={12}>
             <Header as="h3" align="left">
               <Icon name="star" />Recommended Items
             </Header>
-            <Grid.Column>
-              <Card raised>
-                <Image src="" height="200em" />
-                <Card.Content>
-                  <Card.Header>
-                    <span className="date">
-                      <Image src="" height="25em" />
-                    </span>
-                    <br />
-                  </Card.Header>
-                  <Card.Meta />
-                  <Card.Description>
-                    <Header as="h3" color="green" />
-                    <Header as="h4" color="red">
-                      Sale Ends:
-                    </Header>
-                  </Card.Description>
-                </Card.Content>
-                <Card.Content extra>
-                  <a href="/#">
-                    <Icon name="tags" />
-                    View Deal
-                  </a>
-                </Card.Content>
-              </Card>
-            </Grid.Column>
+            <Grid.Column>{recItemCards}</Grid.Column>
           </Grid.Column>
         </Grid>
-        <br />
-        <br />
       </div>
     );
   }
@@ -106,6 +100,6 @@ class Account extends React.Component {
 
 const allActions = combineActions(authActions, searchItemActions);
 export default connect(
-  ['user', 'userPhoto', 'userEmail', 'savedSearchItems'],
+  ['user', 'userPhoto', 'userEmail', 'savedSearchItems', 'recItems'],
   allActions
 )(Account);

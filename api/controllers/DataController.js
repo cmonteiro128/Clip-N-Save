@@ -11,7 +11,14 @@ module.exports = {
       const userWithSearchTerms = await User.find({
         uid: req.user.uid
       }).populate("searchTerms");
-      return res.json(userWithSearchTerms[0].searchTerms);
+      const userWithRecItems = await User.find({
+        uid: req.user.uid
+      }).populate("recommendedItems");
+
+      return res.json({
+        searchTerms: userWithSearchTerms[0].searchTerms,
+        recItems: userWithRecItems[0].recommendedItems
+      });
     } else {
       return res.send("You are not permitted to perform this action.", 401);
     }
@@ -43,7 +50,26 @@ module.exports = {
         uid: req.user.uid
       }).populate("searchTerms");
 
-      return res.json(updatedUser[0].searchTerms);
+      // Let's repopulate our recommended items
+      const newRecItems = await sails.helpers.generateRecommended(
+        updatedUser[0].searchTerms
+      );
+
+      let arrayOfRecIds;
+      if (newRecItems !== null) {
+        arrayOfRecIds = newRecItems.map(element => element._source.mongoID);
+      }
+
+      // Save those items
+      await User.addToCollection(
+        userToAddSearchTerm[0].id,
+        "recommendedItems"
+      ).members(arrayOfRecIds);
+
+      return res.json({
+        searchTerms: updatedUser[0].searchTerms,
+        recItems: newRecItems
+      });
     } else {
       return res.send("You are not permitted to perform this action.", 401);
     }
@@ -66,7 +92,26 @@ module.exports = {
         uid: req.user.uid
       }).populate("searchTerms");
 
-      return res.json(updatedUser[0].searchTerms);
+      // Let's repopulate our recommended items
+      const newRecItems = await sails.helpers.generateRecommended(
+        updatedUser[0].searchTerms
+      );
+
+      let arrayOfRecIds;
+      if (newRecItems !== null) {
+        arrayOfRecIds = newRecItems.map(element => element._source.mongoID);
+      }
+
+      // Save those items
+      await User.addToCollection(
+        userToRemoveSearchTerm[0].id,
+        "recommendedItems"
+      ).members(arrayOfRecIds);
+
+      return res.json({
+        searchTerms: updatedUser[0].searchTerms,
+        recItems: newRecItems
+      });
     } else {
       return res.send("You are not permitted to perform this action.", 401);
     }

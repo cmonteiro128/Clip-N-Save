@@ -8,7 +8,8 @@ const initialState = {
   user: '',
   userPhoto: '',
   userEmail: '',
-  savedSearchItems: []
+  savedSearchItems: [],
+  recItems: []
 };
 
 const store =

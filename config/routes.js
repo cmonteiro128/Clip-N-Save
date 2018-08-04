@@ -52,7 +52,7 @@ module.exports.routes = {
   },
 
   /* Search */
-  "POST /api/v1/search/search-sales": { action: "search/search-sales" },
+  "POST /api/v1/search/search-sales": { action: "SearchSales/searchSales" },
 
   /* Authentication */
   "POST /api/v1/user/check-user": { action: "Auth/checkUser" },
@@ -67,5 +67,7 @@ module.exports.routes = {
 
   "GET /api/v1/user/saved-items": { action: "SavedItems/getSavedItems" }, // Get User Saved Items
   "POST /api/v1/user/saved-items": { action: "SavedItems/addSavedItem" }, // Add User Saved Item
-  "DELETE /api/v1/user/saved-items": { action: "Data/removeSavedItems" } // Remove User Saved Item
+  "DELETE /api/v1/user/saved-items": { action: "Data/removeSavedItem" }, // Remove User Saved Item
+
+  "POST /api/v1/user/saved-items": { action: "SavedItems/addSavedItem" } // Add User Saved Item
 };
