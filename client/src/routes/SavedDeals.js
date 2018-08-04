@@ -1,16 +1,46 @@
 import React from 'react';
 import { css } from 'emotion';
 import { connect } from 'unistore/react';
-import {} from 'semantic-ui-react';
+import { Grid } from 'semantic-ui-react';
 import HeaderBar from '../components/HeaderBar';
+import SaleCard from '../components/SaleCard';
+import combineActions from '../actions/combineActions';
+import authActions from '../actions/auth';
+import saleItemActions from '../actions/saleItem';
+
+const cards = '';
+// savedSaleItems.length > 0 ? (
+//   savedSaleItems.map((element, index) => {
+//     console.log(element);
+//     /* eslint-disable no-underscore-dangle */
+//     const item = element._source;
+//     let best;
+//     if (index === 0) best = true;
+//     return (
+//       <SaleCard
+//         productName={item.productName}
+//         endDate={item.endDate}
+//         image={item.image}
+//         salePrice={item.salePrice}
+//         storeName={item.storeName}
+//         best={best}
+//         isSignedIn={isSignedIn}
+//       />
+//     );
+//   })
+// ) : (
+//   <div />
+// );
 
 class SavedDeals extends React.Component {
   componentDidMount() {
-    this.props.getSavedSearchItems();
+    this.props.getSavedSaleItems();
   }
 
   render() {
-    // const { removeSavedSearchItem } = this.props;
+    const { savedSaleItems } = this.props;
+
+    console.log(savedSaleItems);
 
     return (
       <div
@@ -19,11 +49,14 @@ class SavedDeals extends React.Component {
         `}
       >
         <HeaderBar />
+        <Grid columns={6}>{cards}</Grid>
       </div>
     );
   }
 }
 
-export default connect(['user', 'userPhoto', 'userEmail', 'savedSearchItems'])(
-  SavedDeals
-);
+const allActions = combineActions(authActions, saleItemActions);
+export default connect(
+  ['savedSaleItems', 'isSignedIn'],
+  allActions
+)(SavedDeals);

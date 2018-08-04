@@ -8,10 +8,10 @@
 module.exports = {
   getSavedItems: async (req, res) => {
     if (req.user) {
-      const userWithSearchTerms = await User.find({
+      const userWithSavedItems = await User.find({
         uid: req.user.uid
       }).populate("saleItems");
-      return res.json(userWithSearchTerms[0].searchTerms);
+      return res.json(userWithSavedItems[0].saleItems);
     } else {
       return res.send("You are not permitted to perform this action.", 401);
     }

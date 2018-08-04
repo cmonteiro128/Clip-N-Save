@@ -28,11 +28,14 @@ module.exports = {
       {
         index: "saleitems",
         type: "saleItem",
+        size: "1000",
         body: {
           query: {
             bool: {
               must: {
-                match: { productName: inputs.productName }
+                match: {
+                  productName: inputs.productName
+                }
               },
               filter: {
                 bool: {

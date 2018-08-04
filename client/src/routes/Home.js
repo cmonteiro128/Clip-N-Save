@@ -9,7 +9,7 @@ import saleItemActions from '../actions/saleItem';
 const Home = connect(
   ['searchResults', 'isSignedIn'],
   saleItemActions
-)(({ searchResults, isSignedIn, addSavedSaleItem }) => {
+)(({ searchResults, isSignedIn, addSavedSaleItem, getSavedSaleItem }) => {
   console.log(`results: ${searchResults.length}`);
   const cards =
     searchResults.length > 0 ? (
