@@ -34,7 +34,10 @@ module.exports = {
             bool: {
               must: {
                 match: {
-                  productName: inputs.productName
+                  productName: {
+                    query: inputs.productName,
+                    operator: "and"
+                  }
                 }
               },
               filter: {
