@@ -35,19 +35,17 @@ class Account extends React.Component {
 
     const recItemCards =
       recItems != null ? (
-        recItems.map(element => {
-          return (
-            <SaleCard
-              productName={element.productName}
-              endDate={element.endDate}
-              image={element.image}
-              salePrice={element.salePrice}
-              storeName={element.storeName}
-              best={false}
-              isSignedIn
-            />
-          );
-        })
+        recItems.map(element => (
+          <SaleCard
+            productName={element.productName}
+            endDate={element.endDate}
+            image={element.image}
+            salePrice={element.salePrice}
+            storeName={element.storeName}
+            best={false}
+            isSignedIn
+          />
+        ))
       ) : (
         <div />
       );
@@ -90,7 +88,7 @@ class Account extends React.Component {
             <Header as="h3" align="left">
               <Icon name="star" />Recommended Items
             </Header>
-            <Grid.Column>{recItemCards}</Grid.Column>
+            <Grid columns={3}>{recItemCards}</Grid>
           </Grid.Column>
         </Grid>
       </div>
