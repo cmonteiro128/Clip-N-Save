@@ -37,7 +37,6 @@ const Home = connect(
         className={css`
           position: absolute;
           top: 50% !important;
-          left: 40%;
         `}
       >
         No Results. Please enter a search term in the box above
@@ -51,8 +50,8 @@ const Home = connect(
       `}
     >
       <HeaderBar />
-      <WelcomeMessage />
-      <Grid columns={6}>{cards}</Grid>
+      {/* <WelcomeMessage /> */}
+      <Grid centered>{cards}</Grid>
     </div>
   );
 });

@@ -1,8 +1,9 @@
 import React from 'react';
-import { Image, Icon, Card, Header, Button, Grid } from 'semantic-ui-react';
+import { Image, Icon, Card, Header, Button } from 'semantic-ui-react';
 
 const SaleCard = props => {
   let logoSource;
+  let ellipsis = '';
   let price = props.salePrice;
   const endDate = new Date(props.endDate);
   if (props.storeName === 'Market Basket') {
@@ -21,8 +22,11 @@ const SaleCard = props => {
   if (price.endsWith('.0')) {
     price += '0';
   }
+  if (props.productName.length > 50) {
+    ellipsis = '...';
+  }
   return (
-    <Grid.Column>
+    <div style={{ padding: `${5}px` }}>
       <Card raised>
         <Image src={props.image} height="200em" centered inline />
         <Card.Content>
@@ -31,7 +35,7 @@ const SaleCard = props => {
               <Image src={logoSource} height="25em" />
             </span>
             <br />
-            {props.productName}
+            {props.productName.substring(0, 50) + ellipsis}
           </Card.Header>
           <Card.Meta />
           <Card.Description>
@@ -63,7 +67,7 @@ const SaleCard = props => {
           )}
         </Card.Content>
       </Card>
-    </Grid.Column>
+    </div>
   );
 };
 export default SaleCard;

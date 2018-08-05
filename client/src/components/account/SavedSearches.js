@@ -39,13 +39,13 @@ export default class SavedSearches extends Component {
     if (savedSearchItems !== []) {
       searchItemsList = savedSearchItems.map(x => (
         <Grid.Row>
-          <Grid.Column computer={12} largeScreen={12} mobile={8}>
+          <Grid.Column computer={12} largeScreen={12} mobile={12}>
             <Segment>{x.query}</Segment>
           </Grid.Column>
           <Grid.Column
             computer={2}
             largeScreen={2}
-            mobile={2}
+            mobile={4}
             verticalAlign="middle"
           >
             <Button
@@ -70,7 +70,7 @@ export default class SavedSearches extends Component {
             </Card.Header>
             <Card.Meta>Add a new saved search below</Card.Meta>
             <Card.Description>
-              <Grid columns={2} container divided stackable>
+              <Grid columns={2} container divided>
                 {searchItemsList}
                 <br />
               </Grid>

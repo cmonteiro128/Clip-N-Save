@@ -1,15 +1,7 @@
 import React from 'react';
 import { css } from 'emotion';
 import { connect } from 'unistore/react';
-import {
-  Header,
-  Icon,
-  Item,
-  Grid,
-  Card,
-  Image,
-  Divider
-} from 'semantic-ui-react';
+import { Header, Icon, Item, Grid, Divider } from 'semantic-ui-react';
 import HeaderBar from '../components/HeaderBar';
 import authActions from '../actions/auth';
 import searchItemActions from '../actions/searchItem';
@@ -65,7 +57,7 @@ class Account extends React.Component {
         </Header>
         <Divider />
         <Grid columns={2}>
-          <Grid.Column largeScreen={4} wideScreen={4} mobile={16}>
+          <Grid.Column largeScreen={4} mobile={16} wideScreen={4}>
             <Header as="h3" align="left">
               <Icon name="user" />User Information
             </Header>
@@ -84,11 +76,12 @@ class Account extends React.Component {
               removeSavedSearchItem={data => removeSavedSearchItem(data)}
             />
           </Grid.Column>
-          <Grid.Column largeScreen={10} mobile={16} widescreen={10} tablet={12}>
-            <Header as="h3" align="left">
+          <Grid.Column largeScreen={12} mobile={16} wideScreen={12}>
+            <Header as="h3" align="center">
               <Icon name="star" />Recommended Items
             </Header>
-            <Grid columns={3}>{recItemCards}</Grid>
+            <br />
+            <Grid centered>{recItemCards}</Grid>
           </Grid.Column>
         </Grid>
       </div>

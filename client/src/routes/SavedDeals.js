@@ -18,19 +18,17 @@ class SavedDeals extends React.Component {
 
     const cards =
       savedSaleItems != null ? (
-        savedSaleItems.map(element => {
-          return (
-            <SaleCard
-              productName={element.productName}
-              endDate={element.endDate}
-              image={element.image}
-              salePrice={element.salePrice}
-              storeName={element.storeName}
-              best={false}
-              isSignedIn
-            />
-          );
-        })
+        savedSaleItems.map(element => (
+          <SaleCard
+            productName={element.productName}
+            endDate={element.endDate}
+            image={element.image}
+            salePrice={element.salePrice}
+            storeName={element.storeName}
+            best={false}
+            isSignedIn
+          />
+        ))
       ) : (
         <div />
       );
@@ -42,7 +40,7 @@ class SavedDeals extends React.Component {
         `}
       >
         <HeaderBar />
-        <Grid columns={6}>{cards}</Grid>
+        <Grid centered>{cards}</Grid>
       </div>
     );
   }
