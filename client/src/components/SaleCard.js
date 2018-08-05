@@ -55,9 +55,17 @@ const SaleCard = props => {
         </Card.Content>
         <Card.Content extra textAlign="center">
           {props.isSignedIn ? (
-            <Button fluid color="teal" onClick={() => props.addSavedSaleItem()}>
+            <Button
+              fluid
+              color={props.isSaved ? 'red' : 'teal'}
+              onClick={
+                props.isSaved
+                  ? () => props.removeSavedSaleItem()
+                  : () => props.addSavedSaleItem()
+              }
+            >
               <Icon name="tags" />
-              Save Deal
+              {props.isSaved ? 'Remove Deal' : 'Save Deal'}
             </Button>
           ) : (
             <Button fluid color="grey">

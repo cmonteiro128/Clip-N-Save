@@ -6,6 +6,7 @@ import HeaderBar from '../components/HeaderBar';
 import authActions from '../actions/auth';
 import searchItemActions from '../actions/searchItem';
 import combineActions from '../actions/combineActions';
+import saleItemActions from '../actions/saleItem';
 import SavedSearches from '../components/account/SavedSearches';
 import SaleCard from '../components/SaleCard';
 
@@ -22,6 +23,7 @@ class Account extends React.Component {
       savedSearchItems,
       addSavedSearchItem,
       removeSavedSearchItem,
+      addSavedSaleItem,
       recItems
     } = this.props;
 
@@ -35,6 +37,7 @@ class Account extends React.Component {
             salePrice={element.salePrice}
             storeName={element.storeName}
             best={false}
+            addSavedSaleItem={() => addSavedSaleItem({ id: element.id })}
             isSignedIn
           />
         ))
@@ -89,7 +92,11 @@ class Account extends React.Component {
   }
 }
 
-const allActions = combineActions(authActions, searchItemActions);
+const allActions = combineActions(
+  authActions,
+  searchItemActions,
+  saleItemActions
+);
 export default connect(
   ['user', 'userPhoto', 'userEmail', 'savedSearchItems', 'recItems'],
   allActions

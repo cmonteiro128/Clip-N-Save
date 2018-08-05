@@ -14,7 +14,7 @@ class SavedDeals extends React.Component {
   }
 
   render() {
-    const { savedSaleItems } = this.props;
+    const { savedSaleItems, removeSavedSaleItem } = this.props;
 
     const cards =
       savedSaleItems != null ? (
@@ -26,7 +26,9 @@ class SavedDeals extends React.Component {
             salePrice={element.salePrice}
             storeName={element.storeName}
             best={false}
+            removeSavedSaleItem={() => removeSavedSaleItem({ id: element.id })}
             isSignedIn
+            isSaved
           />
         ))
       ) : (
