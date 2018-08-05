@@ -69,5 +69,6 @@ module.exports.routes = {
   "POST /api/v1/user/saved-items": { action: "SavedItems/addSavedItem" }, // Add User Saved Item
   "DELETE /api/v1/user/saved-items": { action: "SavedItems/removeSavedItem" }, // Remove User Saved Item
 
-  "POST /api/v1/user/saved-items": { action: "SavedItems/addSavedItem" } // Add User Saved Item
+  "POST /api/v1/email/test-email": { action: "EmailTest/sendTestEmail" }, // Add User Saved Item
+  "POST /api/v1/email/send-cart-email": { action: "EmailTest/sendCart" } // Add User Saved Item
 };
