@@ -66,9 +66,13 @@ module.exports = {
         "recommendedItems"
       ).members(arrayOfRecIds);
 
+      const userWithRecItems = await User.find({
+        uid: req.user.uid
+      }).populate("recommendedItems");
+
       return res.json({
         searchTerms: updatedUser[0].searchTerms,
-        recItems: newRecItems
+        recItems: userWithRecItems[0].recommendedItems
       });
     } else {
       return res.send("You are not permitted to perform this action.", 401);
@@ -108,9 +112,13 @@ module.exports = {
         "recommendedItems"
       ).members(arrayOfRecIds);
 
+      const userWithRecItems = await User.find({
+        uid: req.user.uid
+      }).populate("recommendedItems");
+
       return res.json({
         searchTerms: updatedUser[0].searchTerms,
-        recItems: newRecItems
+        recItems: userWithRecItems[0].recommendedItems
       });
     } else {
       return res.send("You are not permitted to perform this action.", 401);
