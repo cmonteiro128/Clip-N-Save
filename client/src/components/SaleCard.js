@@ -28,7 +28,7 @@ const SaleCard = props => {
   return (
     <div style={{ padding: `${5}px` }}>
       <Card raised>
-        <Image src={props.image} height="200em" centered inline />
+        <Image src={props.image} height="200em" centered />
         <Card.Content>
           <Card.Header>
             <span className="date">

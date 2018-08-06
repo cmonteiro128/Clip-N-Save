@@ -1,7 +1,14 @@
 import React from 'react';
 import { css } from 'emotion';
 import { connect } from 'unistore/react';
-import { Grid, Divider, Header, Button, Icon } from 'semantic-ui-react';
+import {
+  Grid,
+  Divider,
+  Header,
+  Button,
+  Icon,
+  Message
+} from 'semantic-ui-react';
 import HeaderBar from '../components/HeaderBar';
 import SaleCard from '../components/SaleCard';
 import combineActions from '../actions/combineActions';
@@ -33,7 +40,14 @@ class SavedDeals extends React.Component {
           />
         ))
       ) : (
-        <div />
+        <Message
+          className={css`
+            position: absolute;
+            top: 50% !important;
+          `}
+        >
+          You have no saved deals. Save a deal to view items
+        </Message>
       );
 
     return (
@@ -74,12 +88,14 @@ class SavedDeals extends React.Component {
             <Icon name="mail" />
             Email List
           </Button>
+          <br />
         </div>
         <Divider
           className={css`
             clear: both;
           `}
         />
+        <br />
         <Grid centered>{cards}</Grid>
       </div>
     );
