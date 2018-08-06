@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { css } from 'emotion';
-import { Menu, Icon, Grid } from 'semantic-ui-react';
+import { Menu, Icon, Grid, Image } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import firebase from 'firebase';
 import { connect } from 'unistore/react';
@@ -30,13 +30,14 @@ class HeaderBar extends Component {
               margin: 0 auto !important;
             `}
           >
-            <Menu.Item
-              header
-              name="Clip N Save"
-              className={css`
-                font-size: 20px;
-              `}
-            />
+            <Menu.Item header inline>
+              <Image
+                src="/clip-n-save-logo.jpg"
+                height="80em"
+                centered
+                inline
+              />
+            </Menu.Item>
             <Link to="/" href="/">
               <Menu.Item
                 active={activeItem === '/'}

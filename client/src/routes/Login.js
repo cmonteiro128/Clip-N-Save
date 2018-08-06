@@ -16,8 +16,7 @@ class Login extends React.Component {
         signInSuccessUrl: '/signedIn',
         signInOptions: [
           firebase.auth.EmailAuthProvider.PROVIDER_ID,
-          firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-          firebase.auth.FacebookAuthProvider.PROVIDER_ID
+          firebase.auth.GoogleAuthProvider.PROVIDER_ID
         ],
         credentialHelper: 'none',
         callbacks: {

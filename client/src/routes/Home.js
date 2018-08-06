@@ -58,6 +58,7 @@ const Home = connect(
         </Header.Content>
       </Header>
       <Divider />
+      <br />
       {/* <WelcomeMessage /> */}
       <Grid
         className={css`

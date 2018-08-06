@@ -60,7 +60,7 @@ class Account extends React.Component {
         </Header>
         <Divider />
         <Grid columns={2}>
-          <Grid.Column largeScreen={4} mobile={16} wideScreen={4}>
+          <Grid.Column largeScreen={4} mobile={16} widesScreen={4}>
             <Header as="h3" align="left">
               <Icon name="user" />User Information
             </Header>
