@@ -20,10 +20,12 @@ module.exports = {
     return res.ok(response);
   },
   sendCart: async (req, res) => {
-    let response = await sails.helpers.sendEmails({
-      uid: "QGcRuNiGbuQSrCH7AwPbjvLKqPW2",
-      type: "cart"
-    });
+    if (req.user) {
+      let response = await sails.helpers.sendEmails({
+        uid: req.user.uid,
+        type: "cart"
+      });
+    }
     return res.ok(response);
   }
 };

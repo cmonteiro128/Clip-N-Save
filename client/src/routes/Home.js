@@ -1,6 +1,6 @@
 import React from 'react';
 import { css } from 'emotion';
-import { Grid, Message } from 'semantic-ui-react';
+import { Grid, Message, Header, Divider } from 'semantic-ui-react';
 import { connect } from 'unistore/react';
 import HeaderBar from '../components/HeaderBar';
 import SaleCard from '../components/SaleCard';
@@ -49,8 +49,24 @@ const Home = connect(
       `}
     >
       <HeaderBar />
+      <Header as="h2">
+        <Header.Content>
+          Search Deals
+          <Header.Subheader>
+            Search for weekly available deals here
+          </Header.Subheader>
+        </Header.Content>
+      </Header>
+      <Divider />
       {/* <WelcomeMessage /> */}
-      <Grid centered>{cards}</Grid>
+      <Grid
+        className={css`
+          margin-top: 15px !important;
+        `}
+        centered
+      >
+        {cards}
+      </Grid>
     </div>
   );
 });

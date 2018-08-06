@@ -8,7 +8,10 @@ import SearchBox from './SearchBox';
 import authActions from '../actions/auth';
 
 class HeaderBar extends Component {
-  state = {};
+  constructor() {
+    super();
+    this.state = { activeItem: window.location.pathname };
+  }
 
   handleItemClick = (e, { name }) => this.setState({ activeItem: name });
 
@@ -36,7 +39,7 @@ class HeaderBar extends Component {
             />
             <Link to="/" href="/">
               <Menu.Item
-                active={activeItem === 'search deals'}
+                active={activeItem === '/'}
                 link
                 className={css`
                   font-size: 17px;
@@ -48,7 +51,7 @@ class HeaderBar extends Component {
             </Link>
             <Link to="/deals" href="/deals">
               <Menu.Item
-                active={activeItem === 'saved deals'}
+                active={activeItem === '/deals'}
                 link
                 className={css`
                   font-size: 17px;
@@ -60,7 +63,7 @@ class HeaderBar extends Component {
             </Link>
             <Link to="/account" href="/account">
               <Menu.Item
-                active={activeItem === 'my account'}
+                active={activeItem === '/account'}
                 link
                 className={css`
                   font-size: 17px;
