@@ -60,7 +60,7 @@ class Account extends React.Component {
         </Header>
         <Divider />
         <Grid columns={2}>
-          <Grid.Column largeScreen={4} mobile={16} wideScreen={4}>
+          <Grid.Column largeScreen={4} mobile={16} widescreen={4}>
             <Header as="h3" align="left">
               <Icon name="user" />User Information
             </Header>
@@ -79,7 +79,7 @@ class Account extends React.Component {
               removeSavedSearchItem={data => removeSavedSearchItem(data)}
             />
           </Grid.Column>
-          <Grid.Column largeScreen={12} mobile={16} wideScreen={12}>
+          <Grid.Column largeScreen={12} mobile={16} widescreen={12}>
             <Header as="h3" align="center">
               <Icon name="star" />Recommended Items
             </Header>
