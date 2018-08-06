@@ -25,7 +25,8 @@ module.exports = {
         uid: req.user.uid,
         type: "cart"
       });
+      return res.ok(response);
     }
-    return res.ok(response);
+    res.status(401).send("You are not permitted to perform this action.");
   }
 };

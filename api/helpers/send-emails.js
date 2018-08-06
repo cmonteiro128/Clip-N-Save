@@ -46,6 +46,21 @@ module.exports = {
       items = userInfo[0].saleItems;
     }
 
+    items.forEach(element => {
+      if (element.storeName === "Market Basket") {
+        element.logoSource =
+          "https://www.shopmarketbasket.com/sites/default/files/Market-Basket-Logo.png";
+      } else if (element.storeName === "Stop Shop") {
+        element.logoSource =
+          "https://stopandshop.com/static/rsns/img/opco-logo.svg";
+      } else if (element.storeName === "Shaws") {
+        element.logoSource =
+          "https://www.shaws.com/wp-content/uploads/2015/11/shaws_800.jpg";
+      }
+    });
+
+    console.log(JSON.stringify(items, null, 4));
+
     const msg = {
       to: userInfo[0].email,
       from: { email: "noreply@clipnsave.now.sh", name: "Clip 'N Save" },

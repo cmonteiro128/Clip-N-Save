@@ -13,7 +13,7 @@ module.exports = {
       }).populate("saleItems");
       return res.json(userWithSavedItems[0].saleItems);
     } else {
-      return res.send("You are not permitted to perform this action.", 401);
+      res.status(401).send("You are not permitted to perform this action.");
     }
   },
   addSavedItem: async (req, res) => {
@@ -34,7 +34,7 @@ module.exports = {
 
       return res.json(updatedUser[0].saleItems);
     } else {
-      return res.send("You are not permitted to perform this action.", 401);
+      res.status(401).send("You are not permitted to perform this action.");
     }
   },
   removeSavedItem: async (req, res) => {
@@ -57,7 +57,7 @@ module.exports = {
 
       return res.json(updatedUser[0].saleItems);
     } else {
-      return res.send("You are not permitted to perform this action.", 401);
+      res.status(401).send("You are not permitted to perform this action.");
     }
   }
 };
