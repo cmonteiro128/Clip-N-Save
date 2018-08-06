@@ -20,7 +20,9 @@ module.exports = {
         recItems: userWithRecItems[0].recommendedItems
       });
     } else {
-      return res.send("You are not permitted to perform this action.", 401);
+      return res
+        .status(401)
+        .send("You are not permitted to perform this action.");
     }
   },
   addSearchTerm: async (req, res) => {
@@ -61,7 +63,7 @@ module.exports = {
       }
 
       // Save those items
-      await User.addToCollection(
+      await User.replaceCollection(
         userToAddSearchTerm[0].id,
         "recommendedItems"
       ).members(arrayOfRecIds);
@@ -75,7 +77,9 @@ module.exports = {
         recItems: userWithRecItems[0].recommendedItems
       });
     } else {
-      return res.send("You are not permitted to perform this action.", 401);
+      return res
+        .status(401)
+        .send("You are not permitted to perform this action.");
     }
   },
   removeSearchTerm: async (req, res) => {
@@ -107,7 +111,7 @@ module.exports = {
       }
 
       // Save those items
-      await User.addToCollection(
+      await User.replaceCollection(
         userToRemoveSearchTerm[0].id,
         "recommendedItems"
       ).members(arrayOfRecIds);
@@ -121,7 +125,9 @@ module.exports = {
         recItems: userWithRecItems[0].recommendedItems
       });
     } else {
-      return res.send("You are not permitted to perform this action.", 401);
+      return res
+        .status(401)
+        .send("You are not permitted to perform this action.");
     }
   }
 };
