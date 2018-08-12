@@ -52,7 +52,7 @@ module.exports = {
           "https://www.shopmarketbasket.com/sites/default/files/Market-Basket-Logo.png";
       } else if (element.storeName === "Stop Shop") {
         element.logoSource =
-          "https://stopandshop.com/static/rsns/img/opco-logo.svg";
+          "https://botw-pd.s3.amazonaws.com/styles/logo-thumbnail/s3/0021/7919/brand.gif?itok=HQ9do98F";
       } else if (element.storeName === "Shaws") {
         element.logoSource =
           "https://www.shaws.com/wp-content/uploads/2015/11/shaws_800.jpg";

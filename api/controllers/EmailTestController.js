@@ -14,7 +14,7 @@ module.exports = {
   },
   sendTestEmail: async (req, res) => {
     let response = await sails.helpers.sendEmails({
-      uid: "QGcRuNiGbuQSrCH7AwPbjvLKqPW2",
+      uid: "7e4nolrY2yPu89Xvao27cEeBNNn2",
       type: "weekly"
     });
     return res.ok(response);
