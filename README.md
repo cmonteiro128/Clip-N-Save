@@ -2,11 +2,11 @@
 
 Repository for Clip 'N Save, an application that allows shoppers to save money every week by finding top supermarket deals.
 
-**Technologies**
-API Server: SailsJS (Node, Express)
-Client: React, Unistore
-DB: Mongo
-Search: ElasticSearch
+**Technologies**\
+API Server: SailsJS (Node, Express)\
+Client: React, Unistore\
+DB: Mongo\
+Search: ElasticSearch\
 Auth: Firebase Authentication
 
 ## Table of Contents
