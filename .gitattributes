@@ -1,2 +1,2 @@
-client/public/index.html linguist-vendored
-client/.storybook/preview-head.html linguist-vendored
+client/public/index.html linguist-vendored=true
+client/.storybook/preview-head.html linguist-vendored=true
