@@ -30,8 +30,13 @@ module.exports = {
       }
     });
 
-    // We want to get all data in Mongo and add it to ElasticSearch
-    const saleItems = await SaleItem.find();
+    // We want to get all data in Mongo and add it to ElasticSearch (newer than 30 days)
+    const now = new Date();
+    const start = new Date(now.getTime() - 720 * 60 * 60 * 1000);
+
+    const saleItems = await SaleItem.find().where({
+      endDate: { ">": start }
+    });
 
     let bulk = [];
 
