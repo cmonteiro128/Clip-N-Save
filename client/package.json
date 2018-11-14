@@ -32,7 +32,8 @@
   },
   "lint-staged": {
     "*.{js,json,css,md}": [
-      "prettier-eslint --write",
+      "yarn run lint",
+      "prettier --write",
       "git add"
     ]
   },
