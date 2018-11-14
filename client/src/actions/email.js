@@ -1,4 +1,4 @@
-import apiCall from './apiCall';
+/* import apiCall from './apiCall';
 
 const emailActions = () => ({
   emailSavedItems: async state => {
@@ -11,7 +11,6 @@ const emailActions = () => ({
     // const savedSearchItems = await response.json();
   },
   emailRecItems: async state => {
-    // test 5
     const response = await apiCall(
       'POST',
       'email/send-cart-email',
@@ -22,4 +21,4 @@ const emailActions = () => ({
   }
 });
 
-export default emailActions;
+export default emailActions; */

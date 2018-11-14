@@ -13,7 +13,7 @@ const Home = connect(
   const cards =
     searchResults.length > 0 ? (
       searchResults.map((element, index) => {
-        console.log(element);
+        // console.log(element);
         /* eslint-disable no-underscore-dangle */
         const item = element._source;
         let best;

@@ -62,7 +62,8 @@ class Account extends React.Component {
         <Grid columns={2}>
           <Grid.Column largeScreen={4} mobile={16} widescreen={4}>
             <Header as="h3" align="left">
-              <Icon name="user" />User Information
+              <Icon name="user" />
+              User Information
             </Header>
             <Item.Group>
               <Item>
@@ -81,7 +82,8 @@ class Account extends React.Component {
           </Grid.Column>
           <Grid.Column largeScreen={12} mobile={16} widescreen={12}>
             <Header as="h3" align="center">
-              <Icon name="star" />Recommended Items
+              <Icon name="star" />
+              Recommended Items
             </Header>
             <br />
             <Grid centered>{recItemCards}</Grid>

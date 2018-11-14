@@ -17,7 +17,7 @@ const getUserDataRequest = async () => {
           mode: 'cors' // no-cors, cors, *same-origin
         });
         const json = await response.json();
-        console.log(json);
+        // console.log(json);
         return json;
       });
   }

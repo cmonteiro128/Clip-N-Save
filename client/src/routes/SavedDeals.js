@@ -14,7 +14,7 @@ import SaleCard from '../components/SaleCard';
 import combineActions from '../actions/combineActions';
 import authActions from '../actions/auth';
 import saleItemActions from '../actions/saleItem';
-import emailActions from '../actions/email';
+// import emailActions from '../actions/email';
 
 class SavedDeals extends React.Component {
   componentDidMount() {
@@ -102,7 +102,7 @@ class SavedDeals extends React.Component {
   }
 }
 
-const allActions = combineActions(authActions, saleItemActions, emailActions);
+const allActions = combineActions(authActions, saleItemActions);
 export default connect(
   ['savedSaleItems', 'isSignedIn'],
   allActions

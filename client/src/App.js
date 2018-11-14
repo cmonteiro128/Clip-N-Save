@@ -2,6 +2,8 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { css } from 'emotion';
 import firebase from 'firebase/app';
+import 'firebase/auth';
+import 'abortcontroller-polyfill/dist/polyfill-patch-fetch';
 import AuthenticatedRoute from './routes/AuthenticatedRoute';
 import UnauthenticatedRoute from './routes/UnauthenticatedRoute';
 import Home from './routes/Home';

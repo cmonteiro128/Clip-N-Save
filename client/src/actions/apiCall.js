@@ -1,6 +1,6 @@
 import baseURL from '../environments';
 
-const apiCall = (callType, route, data = null, token = null) => {
+const apiCall = (callType, route, data = null, token = null, signal = null) => {
   let headers;
   if (token != null) {
     headers = {
@@ -27,7 +27,8 @@ const apiCall = (callType, route, data = null, token = null) => {
       body: JSON.stringify(data),
       headers,
       method: callType,
-      mode: 'cors'
+      mode: 'cors',
+      signal
     });
   }
 
