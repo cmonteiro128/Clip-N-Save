@@ -19,7 +19,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "lint": "eslint src --ext .js,.jsx",
+    "lint": "eslint src",
     "prettier": "prettier --write 'src/**/*.js'",
     "check-all": "yarn run prettier && yarn run lint",
     "format-all": "prettier-eslint --write \"src/**/*.js\"",
@@ -31,9 +31,8 @@
     }
   },
   "lint-staged": {
-    "src/**.{js,json}": [
-      "eslint",
-      "prettier",
+    "src/**/*.{js}": [
+      "eslint --fix src",
       "git add"
     ]
   },
