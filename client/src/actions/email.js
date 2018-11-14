@@ -11,6 +11,7 @@ const emailActions = () => ({
     // const savedSearchItems = await response.json();
   },
   emailRecItems: async state => {
+    // test 2
     const response = await apiCall(
       'POST',
       'email/send-cart-email',
