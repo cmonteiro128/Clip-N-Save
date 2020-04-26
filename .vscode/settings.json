@@ -1,0 +1,9 @@
+{
+  "appService.zipIgnorePattern": [
+    "node_modules{,/**}",
+    ".vscode{,/**}",
+    "client{,/**}"
+  ],
+  "appService.defaultWebAppToDeploy": "/subscriptions/18f3fe9f-7d5e-420b-800e-36000f49b9a4/resourceGroups/clip-n-save/providers/Microsoft.Web/sites/clipnsave",
+  "appService.deploySubpath": ""
+}
