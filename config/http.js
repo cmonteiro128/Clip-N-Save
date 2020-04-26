@@ -8,7 +8,7 @@
  * For more information on configuration, check out:
  * https://sailsjs.com/config/http
  */
-var serveStatic = require('serve-static');
+var serveStatic = require("serve-static");
 
 module.exports.http = {
   /****************************************************************************
@@ -27,17 +27,17 @@ module.exports.http = {
      *                                                                          *
      ***************************************************************************/
     order: [
-      'customClient',
-      'cookieParser',
-      'session',
-      'bodyParser',
-      'compress',
-      'poweredBy',
-      'router',
-      'www',
-      'favicon'
+      // 'customClient',
+      "cookieParser",
+      "session",
+      "bodyParser",
+      "compress",
+      "poweredBy",
+      "router",
+      "www",
+      "favicon",
     ],
 
-    customClient: serveStatic('client/build', { index: ['index.html'] })
-  }
+    // customClient: serveStatic("client/build", { index: ["index.html"] }),
+  },
 };
