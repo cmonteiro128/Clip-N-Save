@@ -67,7 +67,7 @@ module.exports = {
        *                                                                           *
        ****************************************************************************/
       // ssl: true,
-    }
+    },
   },
 
   models: {
@@ -81,7 +81,7 @@ module.exports = {
      * https://sailsjs.com/docs/concepts/models-and-orm/model-settings#?migrate *
      *                                                                          *
      ***************************************************************************/
-    migrate: 'safe'
+    migrate: "safe",
 
     /***************************************************************************
      *                                                                          *
@@ -106,7 +106,7 @@ module.exports = {
    *                                                                         *
    ***************************************************************************/
   blueprints: {
-    shortcuts: false
+    shortcuts: false,
   },
 
   /***************************************************************************
@@ -136,7 +136,7 @@ module.exports = {
       // allowOrigins: [
       //   'https://example.com',
       // ]
-    }
+    },
   },
 
   /***************************************************************************
@@ -201,8 +201,8 @@ module.exports = {
      ***************************************************************************/
     cookie: {
       // secure: true,
-      maxAge: 24 * 60 * 60 * 1000 // 24 hours
-    }
+      maxAge: 24 * 60 * 60 * 1000, // 24 hours
+    },
   },
 
   /**************************************************************************
@@ -225,7 +225,7 @@ module.exports = {
      * > Be sure to use the right protocol!  ("http://" vs. "https://")         *
      *                                                                          *
      ***************************************************************************/
-    onlyAllowOrigins: ['https://example.com', 'https://staging.example.com']
+    onlyAllowOrigins: ["https://example.com", "https://staging.example.com"],
 
     /***************************************************************************
      *                                                                          *
@@ -260,7 +260,7 @@ module.exports = {
    *                                                                         *
    ***************************************************************************/
   log: {
-    level: 'debug'
+    level: "debug",
   },
 
   http: {
@@ -270,7 +270,7 @@ module.exports = {
      * (the "max-age" to include in the "Cache-Control" response header)        *
      *                                                                          *
      ***************************************************************************/
-    cache: 365.25 * 24 * 60 * 60 * 1000 // One year
+    cache: 365.25 * 24 * 60 * 60 * 1000, // One year
 
     /***************************************************************************
      *                                                                          *
@@ -299,8 +299,8 @@ module.exports = {
    * this, just try deploying without setting it and see if it works.)       *
    *                                                                         *
    ***************************************************************************/
-  // port: 80,
-
+  port: process.env.port,
+  hookTimeout: 30000,
   /**************************************************************************
    *                                                                         *
    * Configure an SSL certificate                                            *
@@ -329,8 +329,8 @@ module.exports = {
    *                                                                         *
    ***************************************************************************/
   custom: {
-    baseUrl: 'https://example.com',
-    internalEmailAddress: 'support@example.com'
+    baseUrl: "https://example.com",
+    internalEmailAddress: "support@example.com",
 
     // mailgunDomain: 'mg.example.com',
     // mailgunSecret: 'key-prod_fake_bd32301385130a0bafe030c',
@@ -346,5 +346,5 @@ module.exports = {
     // sails_custom__stripeSecret=sk_prod__fake_Nfgh82401348jaDa3lkZ0d9Hm
     // ```
     //--------------------------------------------------------------------------
-  }
+  },
 };
