@@ -2,15 +2,5 @@
   "name": "clip-n-save",
   "alias": "clipnsave.now.sh",
   "version": 2,
-  "public": true,
-  "build": {
-    "env": {
-      "API_URL": "https://example.com",
-      "NODE_ENV": "production"
-    }
-  },
-  "env": {
-    "API_URL": "https://example.com",
-    "NODE_ENV": "production"
-  }
+  "public": true
 }
