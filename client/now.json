@@ -1,8 +1,8 @@
 {
   "name": "qsave",
   "alias": "clipnsave.now.sh",
-  "type": "npm",
-  "version": 1,
+  "type": "static",
+  "version": 2,
   "public": true,
   "env": {
     "NODE_ENV": "production"
