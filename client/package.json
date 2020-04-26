@@ -5,7 +5,7 @@
   "dependencies": {
     "abortcontroller-polyfill": "^1.1.9",
     "emotion": "^9.2.3",
-    "firebase": "^5.2.0",
+    "firebase": "^7.14.2",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-emotion": "^9.2.6",
@@ -17,7 +17,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "react-scripts build --env.API_URL=https://clipnsave.now.sh/",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "lint": "eslint src",
@@ -45,5 +45,17 @@
     "husky": "^1.1.4",
     "prettier": "^1.13.7",
     "prettier-eslint-cli": "^4.7.1"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
