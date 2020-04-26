@@ -1,7 +1,6 @@
 {
   "name": "qsave",
   "alias": "clipnsave.now.sh",
-  "type": "static",
   "version": 2,
   "public": true,
   "env": {
