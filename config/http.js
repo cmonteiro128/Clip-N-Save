@@ -8,7 +8,7 @@
  * For more information on configuration, check out:
  * https://sailsjs.com/config/http
  */
-var serveStatic = require("serve-static");
+// var serveStatic = require("serve-static");
 
 module.exports.http = {
   /****************************************************************************
