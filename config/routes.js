@@ -37,18 +37,21 @@ module.exports.routes = {
   //  ╠═╣╠═╝║  ║╣ ║║║ ║║╠═╝║ ║║║║║ ║ ╚═╗
   //  ╩ ╩╩  ╩  ╚═╝╝╚╝═╩╝╩  ╚═╝╩╝╚╝ ╩ ╚═╝
 
+  /* Heartbeat */
+  "GET /api/v1/heartbeat": { action: "Heartbeat/heartbeat" },
+
   /* Load Data */
   "POST /api/v1/load-data/load-market-basket": {
-    action: "LoadSales/loadMarketBasket"
+    action: "LoadSales/loadMarketBasket",
   },
   "POST /api/v1/load-data/load-stop-shop": {
-    action: "LoadSales/loadStopShop"
+    action: "LoadSales/loadStopShop",
   },
   "POST /api/v1/load-data/load-shaws": { action: "LoadSales/loadShaws" },
   "POST /api/v1/load-data/load-walmart": { action: "LoadSales/loadWalmart" },
   "POST /api/v1/load-data/load-target": { action: "LoadSales/loadTarget" },
   "POST /api/v1/load-data/populate-elastic": {
-    action: "LoadSales/populateElastic"
+    action: "LoadSales/populateElastic",
   },
 
   /* Search */
@@ -70,5 +73,5 @@ module.exports.routes = {
   "DELETE /api/v1/user/saved-items": { action: "SavedItems/removeSavedItem" }, // Remove User Saved Item
 
   "POST /api/v1/email/test-email": { action: "EmailTest/sendTestEmail" }, // Add User Saved Item
-  "POST /api/v1/email/send-cart-email": { action: "EmailTest/sendCart" } // Add User Saved Item
+  "POST /api/v1/email/send-cart-email": { action: "EmailTest/sendCart" }, // Add User Saved Item
 };
