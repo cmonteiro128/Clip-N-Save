@@ -10,7 +10,7 @@ const SaleCard = props => {
     logoSource =
       'https://www.shopmarketbasket.com/sites/default/files/Market-Basket-Logo.png';
   } else if (props.storeName === 'Stop Shop') {
-    logoSource = 'https://stopandshop.com/static/rsns/img/opco-logo.svg';
+    logoSource = 'https://i5.peapod.com/c/C0/C02RY.jpg';
   } else if (props.storeName === 'Shaws') {
     logoSource =
       'https://www.shaws.com/wp-content/uploads/2015/11/shaws_800.jpg';
