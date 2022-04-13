@@ -9,7 +9,7 @@
     "@sailshq/lodash": "^3.10.4",
     "@sailshq/socket.io-redis": "^5.2.0",
     "@sendgrid/mail": "^6.5.5",
-    "async": "2.0.1",
+    "async": "3.2.2",
     "bcrypt-nodejs": "0.0.3",
     "elasticsearch": "^15.5.0",
     "firebase-admin": "^5.13.1",
